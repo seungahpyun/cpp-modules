@@ -6,11 +6,12 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/25 10:06:00 by spyun         #+#    #+#                 */
-/*   Updated: 2025/03/25 16:06:27 by spyun         ########   odam.nl         */
+/*   Updated: 2025/05/30 14:34:15 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
 
 void addContact(PhoneBook &phoneBook)
 {
@@ -65,11 +66,11 @@ int main ()
 	"║:_;   :_;:_;`.__.':_;:_;`.__.':___.'`.__.'`.__.':_;:_;║" << std::endl <<
 	"╚══════════════════════════════════════════════════════╝" << std::endl <<
 	"              Commands : ADD, SEARCH, EXIT              " << RESET << std::endl;
-	while (1 && !std::cin.eof())
+	while (true && !std::cin.eof())
 	{
 		std::cout << "Enter a command: ";
 		std::getline(std::cin, command);
-		transform(command.begin(), command.end(), command.begin(), ::toupper);
+		command = toUpper(command);
 		if (command == "ADD")
 		{
 			addContact(phoneBook);

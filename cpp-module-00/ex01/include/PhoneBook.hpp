@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/25 10:05:55 by spyun         #+#    #+#                 */
-/*   Updated: 2025/03/25 16:06:15 by spyun         ########   odam.nl         */
+/*   Updated: 2025/05/30 14:32:52 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "Contact.hpp"
 #include <iomanip>
 #include <limits>
-#include <algorithm>
 #include <string>
 
 #define RED "\033[0;31m"
@@ -39,4 +38,6 @@ class PhoneBook
 bool		isValidNumber(const std::string &number);
 bool		isValidName(const std::string &name);
 std::string	getValidInput(const std::string &command, bool (*validator)(const std::string &));
+std::string	toUpper(std::string str);
+
 #endif

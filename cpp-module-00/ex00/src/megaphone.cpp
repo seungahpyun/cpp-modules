@@ -6,20 +6,23 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/21 13:53:08 by spyun         #+#    #+#                 */
-/*   Updated: 2025/03/21 13:53:09 by spyun         ########   odam.nl         */
+/*   Updated: 2025/05/30 14:32:07 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <cctype>
 
 void printUpper(int argc, char **argv)
 {
-  for (int i = 1; i < argc; i++)
+	for (int i = 1; i < argc; i++)
 	{
 		std::string str = argv[i];
-		transform(str.begin(), str.end(), str.begin(), ::toupper);
+		for (size_t j = 0; j < str.length(); j++)
+		{
+			str[j] = std::toupper(str[j]);
+		}
 		std::cout << str;
 		if (i < argc - 1)
 			std::cout << " ";

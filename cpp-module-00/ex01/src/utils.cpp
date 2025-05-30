@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/25 11:49:25 by spyun         #+#    #+#                 */
-/*   Updated: 2025/03/25 15:59:38 by spyun         ########   odam.nl         */
+/*   Updated: 2025/05/30 14:34:33 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,13 @@ std::string getValidInput(const std::string &command, bool (*validator)(const st
 			std::cout << RED << "Invalid input" << RESET << std::endl;
 	}
 	return input;
+}
+
+std::string toUpper(std::string str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		str[i] = std::toupper(str[i]);
+	}
+	return str;
 }
