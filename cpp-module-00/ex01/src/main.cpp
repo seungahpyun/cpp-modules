@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/25 10:06:00 by spyun         #+#    #+#                 */
-/*   Updated: 2025/05/30 14:34:15 by seungah       ########   odam.nl         */
+/*   Updated: 2025/05/30 14:41:40 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void addContact(PhoneBook &phoneBook)
 	std::string lastName = getValidInput("Enter last name: ", isValidName);
 	contact.setLastName(lastName);
 
-	std::string nickname = getValidInput("Enter nickname: ", [](const std::string &str) { return !str.empty(); });
+	std::string nickname = getValidInput("Enter nickname: ", isValidName);
 	contact.setNickname(nickname);
 
 	std::string mobileNumber = getValidInput("Enter mobile number: ", isValidNumber);
@@ -70,6 +70,13 @@ int main ()
 	{
 		std::cout << "Enter a command: ";
 		std::getline(std::cin, command);
+		
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << "EOF detected. Exiting..." << std::endl;
+			break;
+		}
+		
 		command = toUpper(command);
 		if (command == "ADD")
 		{
@@ -89,5 +96,6 @@ int main ()
 				<< RESET << std::endl;
 		}
 	}
+	return 0;
 	return 0;
 }

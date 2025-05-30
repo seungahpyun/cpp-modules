@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/25 11:49:25 by spyun         #+#    #+#                 */
-/*   Updated: 2025/05/30 14:34:33 by seungah       ########   odam.nl         */
+/*   Updated: 2025/05/30 14:37:19 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ std::string getValidInput(const std::string &command, bool (*validator)(const st
 	{
 		std::cout << command;
 		std::getline(std::cin, input);
+		
+		if (std::cin.eof())
+		{
+			std::cout << std::endl << "EOF detected. Exiting..." << std::endl;
+			exit(1);
+		}
+		
 		if (validator(input))
 			valid = true;
 		else
