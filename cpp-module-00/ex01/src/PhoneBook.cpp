@@ -42,9 +42,18 @@ void PhoneBook::displayContacts()
 	for (int i = 0; i < _numContacts; i++)
 	{
 		std::cout << std::setw(10) << i + 1 << "|";
-		std::cout << std::setw(10) << _contacts[i].getFirstName().substr(0, 10) << "|";
-		std::cout << std::setw(10) << _contacts[i].getLastName().substr(0, 10) << "|";
-		std::cout << std::setw(10) << _contacts[i].getNickname().substr(0, 10) << std::endl;
+		if (_contacts[i].getFirstName().length() > 10)
+			std::cout << std::setw(10) << _contacts[i].getFirstName().substr(0, 9) << "." << "|";
+		else
+			std::cout << std::setw(10) << _contacts[i].getFirstName() << "|";
+		if (_contacts[i].getLastName().length() > 10)
+			std::cout << std::setw(10) << _contacts[i].getLastName().substr(0, 9) << "." << "|";
+		else
+			std::cout << std::setw(10) << _contacts[i].getLastName() << "|";
+		if (_contacts[i].getNickname().length() > 10)
+			std::cout << std::setw(10) << _contacts[i].getNickname().substr(0, 9) << "." << std::endl;
+		else
+			std::cout << std::setw(10) << _contacts[i].getNickname() << std::endl;
 	}
 }
 
