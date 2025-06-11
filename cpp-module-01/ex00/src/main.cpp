@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/06 09:36:13 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/11 10:26:12 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/11 14:41:06 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int main()
 
 	delete zombie1;
 	delete zombie3;
+	
 	return (0);
 }

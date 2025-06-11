@@ -14,7 +14,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "\033[0;32m"Excutable compiled successfully!"\033[0m"
+	@echo "\033[0;32m"Executable compiled successfully!"\033[0m"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
@@ -28,7 +28,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\033[0;31m"Excutable cleaned successfully!"\033[0m"
+	@echo "\033[0;31m"Executable cleaned successfully!"\033[0m"
 
 re: fclean all
 
