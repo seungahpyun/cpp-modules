@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Zombie.hpp                                         :+:    :+:            */
+/*   randomChump.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/06/06 09:35:43 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/06 09:43:20 by spyun         ########   odam.nl         */
+/*   Created: 2025/06/06 09:36:07 by spyun         #+#    #+#                 */
+/*   Updated: 2025/06/11 10:22:10 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-#include <string>
-
-class Zombie
+void randomChump(const std::string& name)
 {
-	private:
-		std::string name;
-
-	public:
-		Zombie(std::string name);
-		~Zombie();
-		void announce() const;
-};
-
-#endif
+	Zombie zombie(name);
+	zombie.announce();
+}
