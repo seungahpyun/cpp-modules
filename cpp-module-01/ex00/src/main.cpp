@@ -6,13 +6,13 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/06 09:36:13 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/11 14:41:06 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/12 10:48:36 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main()
+int main(void)
 {
 	Zombie* zombie1 = newZombie("Zombie1");
 	zombie1->announce();
@@ -24,6 +24,6 @@ int main()
 
 	delete zombie1;
 	delete zombie3;
-	
+
 	return (0);
 }

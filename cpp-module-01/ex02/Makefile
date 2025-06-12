@@ -1,13 +1,10 @@
-NAME = ex01
+NAME = ex02
 CC = c++
 SANITIZE = -fsanitize=address
 CFLAGS = -g3 $(SANITIZE) -Wall -Wextra -Werror
 SRC_DIR = src
 OBJ_DIR = obj
-INC = -I./include
-SRC = $(SRC_DIR)/main.cpp \
-	  $(SRC_DIR)/Zombie.cpp \
-      $(SRC_DIR)/zombieHorde.cpp
+SRC = $(SRC_DIR)/main.cpp
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
@@ -17,7 +14,7 @@ $(NAME): $(OBJ)
 	@echo "\033[0;32m"Executable compiled successfully!"\033[0m"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)

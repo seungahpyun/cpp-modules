@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 10:31:59 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/12 10:15:28 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/12 10:26:13 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Zombie
 		std::string _name;
 
 	public:
-		Zombie();
-		~Zombie();
-		void announce() const;
+		Zombie(void);
+		~Zombie(void);
+		void announce(void) const;
 		void setName(const std::string& name);
 };
 
