@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/25 13:28:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/03/25 16:11:51 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/12 10:30:31 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void Account::_displayTimestamp(void)
 {
 	time_t now = time(0);
 	tm *ltm = localtime(&now);
-	
+
 	std::cout << "[" << 1900 + ltm->tm_year;
 	std::cout << std::setfill('0') << std::setw(2) << 1 + ltm->tm_mon;
 	std::cout << std::setfill('0') << std::setw(2) << ltm->tm_mday;

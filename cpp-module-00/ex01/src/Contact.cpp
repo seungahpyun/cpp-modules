@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/25 10:05:57 by spyun         #+#    #+#                 */
-/*   Updated: 2025/03/25 15:34:15 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/12 10:34:22 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,3 @@ std::string Contact::getDarkestSecret() const
 {
 	return _darkestSecret;
 }
-
