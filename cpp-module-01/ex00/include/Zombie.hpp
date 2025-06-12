@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/06 09:35:43 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/11 10:25:19 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/12 10:15:37 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define ZOMBIE_HPP
 
 #include <iostream>
-#include <string>
 
 class Zombie
 {

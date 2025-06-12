@@ -1,4 +1,4 @@
-NAME = moar_brainz
+NAME = ex01
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src

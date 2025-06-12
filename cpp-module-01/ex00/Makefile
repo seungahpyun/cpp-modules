@@ -1,4 +1,4 @@
-NAME = brainz
+NAME = ex00
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src

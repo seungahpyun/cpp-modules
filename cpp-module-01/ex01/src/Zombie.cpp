@@ -6,15 +6,15 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/11 10:31:52 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/11 14:54:11 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/12 10:09:22 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie()
+Zombie::Zombie() : _name("")
 {
-
+	std::cout << "Default zombie created." << std::endl;
 }
 
 Zombie::~Zombie()
