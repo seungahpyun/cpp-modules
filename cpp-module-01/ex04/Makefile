@@ -1,4 +1,4 @@
-NAME = ex03
+NAME = ex04
 CC = c++
 SANITIZE = -fsanitize=address
 CFLAGS = -g3 $(SANITIZE) -Wall -Wextra -Werror
@@ -8,17 +8,28 @@ INC = -I./include
 SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
+TEST_SRC = test.cpp
+TEST_OBJ = $(OBJ_DIR)/test.o
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "\033[0;32m"Executable compiled successfully!"\033[0m"
 
+$(TEST_NAME): $(TEST_OBJ)
+	@$(CC) $(CFLAGS) $(TEST_OBJ) -o $(TEST_NAME)
+	@echo "\033[0;32mTest executable compiled successfully!\033[0m"
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
+
+test: $(NAME) $(TEST_NAME)
+	@echo "\033[0;33mRunning tests...\033[0m"
+	@./$(TEST_NAME)
 
 clean:
 	@rm -rf $(OBJ_DIR)
@@ -30,4 +41,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test

@@ -4,7 +4,7 @@ SANITIZE = -fsanitize=address
 CFLAGS = -g3 $(SANITIZE) -Wall -Wextra -Werror
 SRC_DIR = src
 OBJ_DIR = obj
-SRC = $(SRC_DIR)/main.cpp
+SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)

@@ -5,10 +5,7 @@ CFLAGS = -g3 $(SANITIZE) -Wall -Wextra -Werror
 SRC_DIR = src
 OBJ_DIR = obj
 INC = -I./include
-SRC = $(SRC_DIR)/main.cpp \
-      $(SRC_DIR)/newZombie.cpp \
-      $(SRC_DIR)/randomChump.cpp \
-	  $(SRC_DIR)/Zombie.cpp
+SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
