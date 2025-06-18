@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/18 09:09:18 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/18 09:23:23 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/18 12:17:43 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,35 @@ void	Harl::error()
 			  << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-const std::string Harl::levels[4] =
+void Harl::complain(const std::string &level)
 {
-	"DEBUG",
-	"INFO",
-	"WARNING",
-	"ERROR"
-};
-
-void (Harl::*Harl::complaints[4])() =
-{
-	&Harl::debug,
-	&Harl::info,
-	&Harl::warning,
-	&Harl::error
-};
-
-void	Harl::complain(const std::string &level)
-{
-	for (int i = 0; i < 4; ++i)
+	std::string levels[] =
 	{
-		if (levels[i] == level)
+		"DEBUG",
+		"INFO",
+		"WARNING",
+		"ERROR"
+	};
+
+	for (size_t i = 0; i < 4; ++i)
+	{
+		if (level == levels[i])
 		{
-			(this->*complaints[i])();
+			switch (i)
+			{
+				case 0:
+					debug();
+					break;
+				case 1:
+					info();
+					break;
+				case 2:
+					warning();
+					break;
+				case 3:
+					error();
+					break;
+			}
 			return;
 		}
 	}
