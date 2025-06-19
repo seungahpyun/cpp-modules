@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 14:36:19 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/12 15:41:02 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/19 08:58:00 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ bool FileProcessor::processFile()
 	while (std::getline(_inputFile, line))
 	{
 		std::string replacedLine = replaceLine(line);
-		_outputFile << replacedLine << std::endl;
+		_outputFile << replacedLine;
+		if (!_inputFile.eof())
+			_outputFile << std::endl;
 	}
 	return (true);
 }
