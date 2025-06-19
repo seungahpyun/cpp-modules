@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 13:57:37 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/12 14:54:44 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/19 09:04:53 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,14 @@ int main(int argc, char **argv)
 	}
 	return (0);
 }
+
+/*
+test :
+echo "Hello world
+Hello universe
+Goodbye world" > test.txt
+
+./ex04 test.txt "Hello" "Hi"
+
+cat test.txt.replace
+ */
