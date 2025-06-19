@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 11:41:17 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/12 11:57:53 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/19 15:46:24 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Weapon
 	private:
 		std::string _type;
 	public:
-		Weapon(std::string type);
+		Weapon(const std::string& type);
 		~Weapon(void);
 
 		const std::string& getType(void) const;

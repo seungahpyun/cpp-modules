@@ -6,13 +6,13 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 11:41:29 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/12 12:05:06 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/19 15:47:14 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
+HumanB::HumanB(const std::string& name)
 	: _name(name), _weapon(nullptr) {}
 
 HumanB::~HumanB(void) {}

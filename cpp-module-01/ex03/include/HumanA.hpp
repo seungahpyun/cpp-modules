@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 11:41:21 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/12 12:02:45 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/19 15:46:33 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanA
 		Weapon& _weapon;
 
 	public:
-		HumanA(std::string name, Weapon& weapon);
+		HumanA(const std::string& name, Weapon& weapon);
 		~HumanA(void);
 
 		void attack(void) const;

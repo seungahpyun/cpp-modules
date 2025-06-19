@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/12 14:31:32 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/12 15:32:52 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/19 15:39:41 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ class FileProcessor
 		std::ifstream _inputFile;
 		std::ofstream _outputFile;
 
-		std::string replaceLine(const std::string &line);
+		std::string replaceLine(const std::string& line);
 	public:
-		FileProcessor(const std::string &filename, const std::string &s1, const std::string &s2);
+		FileProcessor(const std::string& filename, const std::string & s1, const std::string& s2);
 		~FileProcessor();
 
 		bool validateInputs();
-		void printError(const std::string &message) const;
+		void printError(const std::string& message) const;
 		bool processFile();
 };
 
