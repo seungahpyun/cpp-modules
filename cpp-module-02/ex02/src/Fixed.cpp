@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 12:28:10 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/23 22:16:49 by seungah       ########   odam.nl         */
+/*   Updated: 2025/06/23 22:18:57 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 	{
 		setRawBits(other.getRawBits());
 	}
-	return (*this);
+	return *this;
 }
 
 Fixed::~Fixed(){}
