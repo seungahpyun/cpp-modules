@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/18 15:49:22 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/23 09:28:50 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/23 16:01:07 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed(const Fixed& other);
-		Fixed &operator=(const Fixed& other);
+		Fixed	&operator=(const Fixed& other);
 		~Fixed(void);
 
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
 };
 
 #endif
