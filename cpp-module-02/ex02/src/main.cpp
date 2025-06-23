@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 12:28:15 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/23 15:55:18 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/23 22:15:35 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int main( void )
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 	std::cout << Fixed::min( a, b ) << std::endl;
-	return (0);
+	return 0;
 }

@@ -6,15 +6,15 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 12:28:10 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/23 15:55:08 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/23 22:16:49 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed()
 {
-	this->setRawBits(0);
+	setRawBits(0);
 }
 
 Fixed::Fixed(const int value)
@@ -36,16 +36,16 @@ Fixed& Fixed::operator=(const Fixed& other)
 {
 	if (this != &other)
 	{
-		this->setRawBits(other.getRawBits());
+		setRawBits(other.getRawBits());
 	}
 	return (*this);
 }
 
-Fixed::~Fixed(void){}
+Fixed::~Fixed(){}
 
-int Fixed::getRawBits(void) const
+int Fixed::getRawBits() const
 {
-	return (_fixedPointValue);
+	return _fixedPointValue;
 }
 
 void Fixed::setRawBits(int const raw)
@@ -53,12 +53,12 @@ void Fixed::setRawBits(int const raw)
 	this->_fixedPointValue = raw;
 }
 
-float Fixed::toFloat(void) const
+float Fixed::toFloat() const
 {
 	return (static_cast<float>(_fixedPointValue) / 256.0f);
 }
 
-int Fixed::toInt(void) const
+int Fixed::toInt() const
 {
 	return (_fixedPointValue / 256);
 }
@@ -113,16 +113,16 @@ Fixed Fixed::operator/(const Fixed& other) const
 	return (Fixed(this->toFloat() / other.toFloat()));
 }
 
-Fixed& Fixed::operator++(void)
+Fixed& Fixed::operator++()
 {
 	this->_fixedPointValue++;
-	return (*this);
+	return *this;
 }
 
-Fixed& Fixed::operator--(void)
+Fixed& Fixed::operator--()
 {
 	this->_fixedPointValue--;
-	return (*this);
+	return *this;
 }
 
 Fixed Fixed::operator++(int)
@@ -130,7 +130,7 @@ Fixed Fixed::operator++(int)
 	Fixed temp(*this);
 
 	this->_fixedPointValue++;
-	return (temp);
+	return temp;
 }
 
 Fixed Fixed::operator--(int)
@@ -138,7 +138,7 @@ Fixed Fixed::operator--(int)
 	Fixed temp(*this);
 
 	this->_fixedPointValue--;
-	return (temp);
+	return temp;
 }
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)

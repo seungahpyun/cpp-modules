@@ -6,13 +6,13 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 12:28:15 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/23 12:42:34 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/23 22:13:03 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main( void )
+int main()
 {
 	Fixed a;
 	Fixed const b( 10 );

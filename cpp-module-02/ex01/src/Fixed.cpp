@@ -6,16 +6,16 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 12:28:10 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/23 15:23:00 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/23 22:16:09 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
-	this->setRawBits(0);
+	setRawBits(0);
 }
 
 Fixed::Fixed(const int value)
@@ -41,20 +41,20 @@ Fixed& Fixed::operator=(const Fixed& other)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		this->setRawBits(other.getRawBits());
+		setRawBits(other.getRawBits());
 	}
-	return (*this);
+	return *this;
 }
 
-Fixed::~Fixed(void)
+Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-int Fixed::getRawBits(void) const
+int Fixed::getRawBits() const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (_fixedPointValue);
+	return _fixedPointValue;
 }
 
 void Fixed::setRawBits(int const raw)
@@ -62,12 +62,12 @@ void Fixed::setRawBits(int const raw)
 	_fixedPointValue = raw;
 }
 
-float Fixed::toFloat(void) const
+float Fixed::toFloat() const
 {
 	return (static_cast<float>(_fixedPointValue) / 256.0f);
 }
 
-int Fixed::toInt(void) const
+int Fixed::toInt() const
 {
 	return (_fixedPointValue / 256);
 }

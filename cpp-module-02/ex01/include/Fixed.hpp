@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 12:28:13 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/23 16:00:49 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/23 22:12:42 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ class Fixed
 		static const int	_fractionalBits = 8;
 
 	public:
-		Fixed(void);
+		Fixed();
 		Fixed(const int value);
 		Fixed(const float value);
 		Fixed(const Fixed& other);
 		Fixed	&operator=(const Fixed& other);
-		~Fixed(void);
+		~Fixed();
 
-		int		getRawBits(void) const;
+		int		getRawBits() const;
 		void	setRawBits(int const raw);
-		float	toFloat(void) const;
-		int		toInt(void) const;
+		float	toFloat() const;
+		int		toInt() const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);

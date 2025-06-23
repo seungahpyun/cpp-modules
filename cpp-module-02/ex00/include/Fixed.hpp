@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/18 15:49:22 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/23 16:01:07 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/23 22:12:05 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ class Fixed
 		static const int	_fractionalBits = 8;
 
 	public:
-		Fixed(void);
+		Fixed();
 		Fixed(const Fixed& other);
 		Fixed	&operator=(const Fixed& other);
-		~Fixed(void);
+		~Fixed();
 
-		int		getRawBits(void) const;
+		int		getRawBits() const;
 		void	setRawBits(int const raw);
 };
 
