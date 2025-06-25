@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ClapTrap.hpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: spyun <spyun@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/06/23 16:06:57 by spyun         #+#    #+#                 */
+/*   Updated: 2025/06/25 10:44:10 by spyun         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
+
+#include <iostream>
+
+class ClapTrap
+{
+	protected:
+		std::string		_name;
+		unsigned int	_hitPoints;
+		unsigned int	_energyPoints;
+		unsigned int	_attackDamage;
+
+	public:
+		ClapTrap();
+		ClapTrap(const std::string& name);
+		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
+		virtual 		~ClapTrap();
+
+		int				getEnergyPoints() const { return _energyPoints; }
+		int				getHitPoints() const { return _hitPoints; }
+		std::string		getName() const { return _name; }
+
+		virtual void	attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+};
+
+#endif
