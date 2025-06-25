@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 16:06:57 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/25 09:23:57 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/25 11:13:54 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ class ClapTrap
 		ClapTrap(const std::string& name);
 		ClapTrap(const ClapTrap& other);
 		ClapTrap& operator=(const ClapTrap& other);
-		virtual 		~ClapTrap();
-
-		int 			getEnergyPoints() const { return _energyPoints; }
-		int 			getHitPoints() const { return _hitPoints; }
+		virtual ~ClapTrap();
 
 		virtual void	attack(const std::string& target);
 		void			takeDamage(unsigned int amount);
