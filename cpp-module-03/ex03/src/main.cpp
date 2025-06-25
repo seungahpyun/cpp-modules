@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/25 10:41:58 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/25 10:52:26 by spyun         ########   odam.nl         */
+/*   Updated: 2025/06/25 11:17:04 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,5 @@ int main(void)
 	multi.whoAmI();
 
 	std::cout << "\n--- Destruction Chaining Test ---" << std::endl;
-	// Destructors will be called automatically here
 	return 0;
 }
