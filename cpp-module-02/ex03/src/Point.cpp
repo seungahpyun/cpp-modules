@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 15:59:24 by spyun         #+#    #+#                 */
-/*   Updated: 2025/06/24 09:01:24 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/08 09:50:33 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ Point::Point(const float x_val, const float y_val) : _x(x_val), _y(y_val) {}
 
 Point::Point(const Point& other) : _x(other._x), _y(other._y) {}
 
-Point& Point::operator=(const Point& other) {
+Point& Point::operator=(const Point& other)
+{
 	if (this != &other)
 	{
 		// x and y are const, so we cannot assign them
