@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:42 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 11:42:37 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 12:23:01 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
-		templates[i] = 0;
+		templates[i] = nullptr;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other)
@@ -25,7 +25,7 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 		if (other.templates[i])
 			templates[i] = other.templates[i]->clone();
 		else
-			templates[i] = 0;
+			templates[i] = nullptr;
 	}
 }
 
@@ -39,7 +39,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 			if (templates[i])
 			{
 				delete templates[i];
-				templates[i] = 0;
+				templates[i] = nullptr;
 			}
 		}
 
@@ -49,7 +49,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 			if (other.templates[i])
 				templates[i] = other.templates[i]->clone();
 			else
-				templates[i] = 0;
+				templates[i] = nullptr;
 		}
 	}
 	return *this;
