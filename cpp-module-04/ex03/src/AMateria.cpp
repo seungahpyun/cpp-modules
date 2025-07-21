@@ -6,18 +6,18 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:25 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 14:29:59 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:54:31 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 
-AMateria::AMateria(std::string const & type) : type(type)
+AMateria::AMateria(std::string const & type) : _type(type)
 {
 }
 
-AMateria::AMateria(const AMateria& other) : type(other.type)
+AMateria::AMateria(const AMateria& other) : _type(other._type)
 {
 }
 
@@ -37,7 +37,7 @@ AMateria::~AMateria()
 
 std::string const & AMateria::getType() const
 {
-	return type;
+	return _type;
 }
 
 void AMateria::use(ICharacter& target)

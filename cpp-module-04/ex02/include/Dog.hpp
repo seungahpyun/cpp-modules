@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:43 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:42:15 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:46:29 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Dog : public Animal
 {
 	private:
-		Brain* brain;
+		Brain* _brain;
 
 	public:
 		Dog();

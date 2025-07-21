@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:04:49 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:10:31 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:48:11 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat() : WrongAnimal()
 {
-	type = "WrongCat";
+	_type = "WrongCat";
 	std::cout << "WrongCat default constructor called" << std::endl;
 }
 

@@ -6,18 +6,18 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:30 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 11:19:00 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:47:00 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : type("Unknown")
+Animal::Animal() : _type("Unknown")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& other) : type(other.type)
+Animal::Animal(const Animal& other) : _type(other._type)
 {
 	std::cout << "Animal copy constructor called" << std::endl;
 }
@@ -27,7 +27,7 @@ Animal& Animal::operator=(const Animal& other)
 	std::cout << "Animal assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		type = other.type;
+		_type = other._type;
 	}
 	return *this;
 }
@@ -40,7 +40,7 @@ Animal::~Animal()
 
 std::string Animal::getType() const
 {
-	return type;
+	return _type;
 }
 
 void Animal::setIdea(int index, const std::string& idea)

@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:10 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 14:30:08 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:48:48 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 class Character : public ICharacter
 {
 	private:
-		std::string	name;
-		AMateria*	inventory[4];
-		int			held_items;
+		std::string	_name;
+		AMateria*	_inventory[4];
+		int			_held_items;
 
 	public:
 		Character();

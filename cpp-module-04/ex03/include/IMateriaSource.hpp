@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:22 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 11:34:46 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:49:13 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define IMATERIASOURCE_HPP
 
 #include <iostream>
-
-class AMateria;
+#include "AMateria.hpp"
 
 class IMateriaSource
 {

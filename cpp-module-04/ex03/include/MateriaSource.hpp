@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:20 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 14:30:11 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:48:55 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-		AMateria* templates[4];
+		AMateria* _templates[4];
 
 	public:
 		MateriaSource();

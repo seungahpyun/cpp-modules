@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:42 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 12:23:01 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:55:00 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
-		templates[i] = nullptr;
+		_templates[i] = nullptr;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (other.templates[i])
-			templates[i] = other.templates[i]->clone();
+		if (other._templates[i])
+			_templates[i] = other._templates[i]->clone();
 		else
-			templates[i] = nullptr;
+			_templates[i] = nullptr;
 	}
 }
 
@@ -36,20 +36,20 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 		// Delete old templates
 		for (int i = 0; i < 4; i++)
 		{
-			if (templates[i])
+			if (_templates[i])
 			{
-				delete templates[i];
-				templates[i] = nullptr;
+				delete _templates[i];
+				_templates[i] = nullptr;
 			}
 		}
 
 		// Copy new templates
 		for (int i = 0; i < 4; i++)
 		{
-			if (other.templates[i])
-				templates[i] = other.templates[i]->clone();
+			if (other._templates[i])
+				_templates[i] = other._templates[i]->clone();
 			else
-				templates[i] = nullptr;
+				_templates[i] = nullptr;
 		}
 	}
 	return *this;
@@ -59,8 +59,8 @@ MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (templates[i])
-			delete templates[i];
+		if (_templates[i])
+			delete _templates[i];
 	}
 }
 
@@ -71,9 +71,9 @@ void MateriaSource::learnMateria(AMateria* materia)
 
 	for (int i = 0; i < 4; i++)
 	{
-		if (!templates[i])
+		if (!_templates[i])
 		{
-			templates[i] = materia->clone();
+			_templates[i] = materia->clone();
 			delete materia; // Clean up the original
 			return;
 		}
@@ -85,9 +85,9 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (templates[i] && templates[i]->getType() == type)
+		if (_templates[i] && _templates[i]->getType() == type)
 		{
-			return templates[i]->clone();
+			return _templates[i]->clone();
 		}
 	}
 	return 0; // Type not found
