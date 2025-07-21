@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:27 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 12:30:06 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 12:33:10 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4 && inventory[idx])
 	{
-		delete inventory[idx];
 		inventory[idx] = nullptr;
 	}
 	else if (idx < 0 || idx >= 4)
