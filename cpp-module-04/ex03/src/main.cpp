@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:25 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 14:26:57 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:34:36 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 int main(void)
 {
-	// Array to track all unequipped/unused materias for proper cleanup
 	AMateria* groundMaterias[16];
 	int groundCount = 0;
 
@@ -93,18 +92,14 @@ int main(void)
 	Character* clone = new Character(*(Character*)me);
 	std::cout << "Clone uses slot 0 on bob: ";
 	clone->use(0, *bob);
-
-	// Unequip from clone and store
 	AMateria* cloneUnequipped = clone->getMateria(0);
 	clone->unequip(0);
 	if (cloneUnequipped && groundCount < 16) {
 		std::cout << "Storing clone's unequipped materia on ground" << std::endl;
 		groundMaterias[groundCount++] = cloneUnequipped;
 	}
-
 	std::cout << "Original uses slot 0 on bob: ";
 	me->use(0, *bob);
-
 	std::cout << "Clone uses slot 0 on bob (should be empty): ";
 	clone->use(0, *bob);
 
@@ -117,8 +112,6 @@ int main(void)
 	std::cout << "\n===== Test 5: MateriaSource Copy =====" << std::endl;
 	MateriaSource* src2 = new MateriaSource(*(MateriaSource*)src);
 	tmp = src2->createMateria("ice");
-
-	// Check if assigned character has space for new materia
 	bool inventoryFull_assigned = true;
 	for (int i = 0; i < 4; ++i) {
 		if (assigned.getMateria(i) == nullptr) {
@@ -126,24 +119,19 @@ int main(void)
 			break;
 		}
 	}
-
 	if (!inventoryFull_assigned && tmp) {
 		std::cout << "src2 creates and equips 'ice' for assigned: ";
 		assigned.equip(tmp);
-		assigned.use(3, *bob);  // Use the newly equipped materia
+		assigned.use(3, *bob);
 	} else if (tmp && groundCount < 16) {
 		std::cout << "Assigned inventory full, storing src2's materia on ground" << std::endl;
 		groundMaterias[groundCount++] = tmp;
 	}
-
 	delete src2;
 
-	std::cout <<  "\n===== Test 6: Additional Edge Cases =====" << std::endl;
-
 	// Test equipping null
+	std::cout <<  "\n===== Test 6: Additional Edge Cases =====" << std::endl;
 	me->equip(nullptr);
-
-	// Test using invalid indices
 	me->use(-1, *bob);
 	me->use(10, *bob);
 
@@ -153,9 +141,8 @@ int main(void)
 	clone->printInventory();
 	assigned.printInventory();
 
-	std::cout << "\n===== Test 7: Memory Cleanup =====" << std::endl;
-
 	// Clean up all ground materias
+	std::cout << "\n===== Test 7: Memory Cleanup =====" << std::endl;
 	std::cout << "Cleaning up " << groundCount << " materias from ground..." << std::endl;
 	for (int i = 0; i < groundCount; ++i) {
 		if (groundMaterias[i]) {
@@ -164,7 +151,6 @@ int main(void)
 		}
 	}
 
-	// Clean up characters and source
 	delete clone;
 	delete bob;
 	delete me;
