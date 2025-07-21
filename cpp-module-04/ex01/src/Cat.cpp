@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:35 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:18:16 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:39:28 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,3 @@ void Cat::makeSound() const
 	std::cout << "Meow!" << std::endl;
 }
 
-void Cat::setIdea(int index, const std::string& idea)
-{
-	if (brain)
-		brain->setIdea(index, idea);
-}
-
-std::string Cat::getIdea(int index) const
-{
-	if (brain)
-		return brain->getIdea(index);
-	return "";
-}

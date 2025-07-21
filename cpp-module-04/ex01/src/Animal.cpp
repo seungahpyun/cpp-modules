@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:30 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:10:09 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:35:29 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,18 @@ void Animal::makeSound() const
 std::string Animal::getType() const
 {
 	return type;
+}
+
+void Animal::setIdea(int index, std::string& idea)
+{
+	(void)index;
+	(void)idea;
+	std::cout << "Animal doesn't have a brain to store ideas!" << std::endl;
+}
+
+std::string Animal::getIdea(int index) const
+{
+	(void)index;
+	std::cout << "Animal doesn't have a brain to get ideas from!" << std::endl;
+	return "";
 }

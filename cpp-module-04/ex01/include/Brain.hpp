@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:46:09 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:01:16 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:37:59 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ class Brain
 		Brain();
 		Brain(const Brain& other);
 		Brain& operator=(const Brain& other);
-		~Brain();
+		virtual ~Brain();
 
-		void setIdea(int index, const std::string& idea);
-		std::string getIdea(int index) const;
 };
 
 #endif
