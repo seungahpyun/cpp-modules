@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:10:10 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:11:04 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:01:43 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,5 @@ class WrongAnimal
 		virtual void makeSound() const;
 		std::string getType() const;
 };
-
-std::ostream& operator<<(std::ostream& os, const WrongAnimal& wrongAnimal);
 
 #endif

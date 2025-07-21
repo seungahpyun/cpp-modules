@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:35 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:14:40 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:01:56 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,3 @@ void Cat::makeSound() const
 {
 	std::cout << "Meow!" << std::endl;
 }
-
-std::ostream& operator<<(std::ostream& os, const Cat& cat)
-{
-	os << "Cat type: " << cat.getType();
-	return os;
-}
-

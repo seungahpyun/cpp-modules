@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 08:58:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:23:03 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:04:20 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int main()
 	delete cat;
 	delete wrong_animal;
 	delete wrong_cat;
-	
+
 	return 0;
 }

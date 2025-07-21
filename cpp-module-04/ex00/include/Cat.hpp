@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:38 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:07:52 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:01:38 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ class Cat : public Animal
 
 		void makeSound() const override;
 };
-
-std::ostream& operator<<(std::ostream& os, const Cat& cat);
 
 #endif

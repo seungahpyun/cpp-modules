@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:04:49 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:18:16 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:02:12 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,4 @@ WrongCat::~WrongCat()
 void WrongCat::makeSound() const
 {
 	std::cout << "Wrong Meow!" << std::endl;
-}
-
-std::ostream& operator<<(std::ostream& os, const WrongCat& wrongCat)
-{
-	os << "WrongCat type: " << wrongCat.getType();
-	return os;
 }

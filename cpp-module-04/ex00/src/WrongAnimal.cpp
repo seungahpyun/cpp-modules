@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:10:13 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:17:08 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:02:08 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,3 @@ std::string WrongAnimal::getType() const
 {
 	return type;
 }
-
-std::ostream& operator<<(std::ostream& os, const WrongAnimal& wrongAnimal)
-{
-	os << "WrongAnimal type: " << wrongAnimal.getType();
-	return os;
-}
-

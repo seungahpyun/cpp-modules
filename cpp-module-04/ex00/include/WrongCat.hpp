@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:04:51 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:09:47 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:01:45 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ class WrongCat : public WrongAnimal
 
 		void makeSound() const override;
 };
-
-std::ostream& operator<<(std::ostream& os, const WrongCat& wrongCat);
 
 #endif

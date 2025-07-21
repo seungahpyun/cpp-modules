@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:40 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:15:09 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:02:02 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,4 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
 	std::cout << "Woof!" << std::endl;
-}
-
-std::ostream& operator<<(std::ostream& os, const Dog& dog)
-{
-	os << "Dog type: " << dog.getType();
-	return os;
 }

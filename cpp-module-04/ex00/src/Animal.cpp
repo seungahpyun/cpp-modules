@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:30 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 09:16:15 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:01:50 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,4 @@ std::string Animal::getType() const
 	return type;
 }
 
-std::ostream& operator<<(std::ostream& os, const Animal& animal)
-{
-	os << "Animal type: " << animal.getType();
-	return os;
-}
+
