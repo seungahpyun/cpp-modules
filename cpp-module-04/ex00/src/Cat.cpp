@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:35 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:01:56 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:37:33 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat() : Animal()
 {
-	type = "Cat";
+	_type = "Cat";
 	std::cout << "Cat default constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:40 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:02:02 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:37:39 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog() : Animal()
 {
-	type = "Dog";
+	_type = "Dog";
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
