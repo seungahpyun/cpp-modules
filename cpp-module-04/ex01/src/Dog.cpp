@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:40 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:39:31 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:42:20 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,15 @@ void Dog::makeSound() const
 	std::cout << "Woof!" << std::endl;
 }
 
+void Dog::setIdea(int index, const std::string& idea)
+{
+	if (brain)
+		brain->setIdea(index, idea);
+}
+
+std::string Dog::getIdea(int index) const
+{
+	if (brain)
+		return brain->getIdea(index);
+	return "";
+}

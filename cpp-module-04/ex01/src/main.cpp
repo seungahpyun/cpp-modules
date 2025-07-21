@@ -6,9 +6,10 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 08:58:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:39:48 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 11:05:52 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "Dog.hpp"
 #include "Cat.hpp"
@@ -16,43 +17,50 @@
 
 int main()
 {
-	const Animal* animal = new Animal();
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+	std::cout << "=== Basic Test ===" << std::endl;
 
-	const WrongAnimal* wrong_animal = new WrongAnimal();
-	const WrongAnimal* wrong_cat = new WrongCat();
+	Animal* dog = new Dog();
+	Animal* cat = new Cat();
 
-	std::cout << "Animal sound: " << std::endl;
-	animal->makeSound();
-
-	std::cout << "Dog sound: " << std::endl;
-	dog->makeSound();
-	dog->setIdea(0, "Fetch the ball");
-	dog->setIdea(1, "Guard the house");
-	std::cout << "Dog's idea at index 0: " << dog->getIdea(0) << std::endl;
-	std::cout << "Dog's idea at index 1: " << dog->getIdea(1) << std::endl;
-
-	std::cout << "Cat sound: " << std::endl;
+	std::cout << dog->getType() << " " << std::endl;
+	std::cout << cat->getType() << " " << std::endl;
 	cat->makeSound();
-	cat->setIdea(0, "Chase the laser pointer");
-	cat->setIdea(1, "Sleep in the sun");
-	std::cout << "Cat's idea at index 0: " << cat->getIdea(0) << std::endl;
-	std::cout << "Cat's idea at index 1: " << cat->getIdea(1) << std::endl;
+	dog->makeSound();
 
-
-	std::cout << "WrongAnimal sound: " << std::endl;
-	wrong_animal->makeSound();
-
-	std::cout << "WrongCat sound: " << std::endl;
-	wrong_cat->makeSound();
-
-
-	delete animal;
 	delete dog;
 	delete cat;
-	delete wrong_animal;
-	delete wrong_cat;
+
+	std::cout << "\n=== Deep Copy Test ===" << std::endl;
+
+
+	Dog original;
+	original.setIdea(0, "Original idea");
+
+	Dog copy = original;
+	original.setIdea(0, "Modified idea");
+
+	std::cout << "Original: " << original.getIdea(0) << std::endl;
+	std::cout << "Copy: " << copy.getIdea(0) << std::endl;
+
+	std::cout << "\n=== Array Test (Main Requirement) ===" << std::endl;
+
+	const int SIZE = 10;
+	Animal* animals[SIZE];
+
+	// Half Dog, half Cat
+	for (int i = 0; i < SIZE / 2; i++)
+		animals[i] = new Dog();
+	for (int i = SIZE / 2; i < SIZE; i++)
+		animals[i] = new Cat();
+
+	for (int i = 0; i < SIZE; i++)
+	{
+		std::cout << animals[i]->getType() << ": ";
+		animals[i]->makeSound();
+	}
+
+	for (int i = 0; i < SIZE; i++)
+		delete animals[i];
 
 	return 0;
 }

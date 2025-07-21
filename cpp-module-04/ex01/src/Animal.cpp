@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:30 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:35:29 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:47:11 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ std::string Animal::getType() const
 	return type;
 }
 
-void Animal::setIdea(int index, std::string& idea)
+void Animal::setIdea(int index, const std::string& idea)
 {
 	(void)index;
 	(void)idea;

@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:38 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:38:37 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:42:13 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Cat : public Animal
 		virtual ~Cat();
 
 		void makeSound() const override;
+		void setIdea(int index, const std::string& idea) override;
+		std::string getIdea(int index) const override;
 };
 
 #endif

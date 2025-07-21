@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:33 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:37:32 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:46:48 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Animal
 
 		virtual void makeSound() const;
 		std::string getType() const;
+		virtual void setIdea(int index, const std::string& idea);
+		virtual std::string getIdea(int index) const;
 };
 
 #endif

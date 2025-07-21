@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:46:11 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:38:13 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 10:45:16 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,23 @@ Brain::~Brain()
 {
 	std::cout << "Brain destructor called" << std::endl;
 }
+
+void Brain::setIdea(int index, const std::string& idea)
+{
+	if (index >= 0 && index < 100)
+		ideas[index] = idea;
+	else
+		std::cerr << "Index out of bounds!" << std::endl;
+}
+
+std::string Brain::getIdea(int index) const
+{
+	if (index >= 0 && index < 100)
+		return ideas[index];
+	else
+	{
+		std::cerr << "Index out of bounds!" << std::endl;
+		return "";
+	}
+}
+
