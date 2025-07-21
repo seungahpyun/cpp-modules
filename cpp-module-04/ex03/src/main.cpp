@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:25 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 15:07:41 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 15:12:07 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,21 @@ int main(void)
 	// Try to equip when full - safe handling
 	tmp = src->createMateria("ice");
 	bool inventoryFull = true;
-	for (int i = 0; i < 4; ++i) {
-		if (((Character*)me)->getMateria(i) == nullptr) {
+	for (int i = 0; i < 4; ++i)
+	{
+		if (((Character*)me)->getMateria(i) == nullptr)
+		{
 			inventoryFull = false;
 			break;
 		}
 	}
 
-	if (!inventoryFull) {
+	if (!inventoryFull)
+	{
 		me->equip(tmp);
-	} else {
+	}
+	else
+	{
 		std::cout << "Inventory full, storing extra materia on ground" << std::endl;
 		if (tmp && groundCount < 4)
 			groundMaterias[groundCount++] = tmp;
@@ -66,7 +71,8 @@ int main(void)
 	// Unequip slot 2 and store on ground
 	AMateria* unequipped = ((Character*)me)->getMateria(2);
 	me->unequip(2);
-	if (unequipped && groundCount < 4) {
+	if (unequipped && groundCount < 4)
+	{
 		std::cout << "Storing unequipped materia on ground" << std::endl;
 		groundMaterias[groundCount++] = unequipped;
 	}
@@ -80,11 +86,14 @@ int main(void)
 
 	// Try unknown materia - should return null
 	tmp = src->createMateria("fire");
-	if (tmp) {
+	if (tmp)
+	{
 		std::cout << "Unexpected: fire materia was created!" << std::endl;
 		if (groundCount < 4)
 			groundMaterias[groundCount++] = tmp;
-	} else {
+	}
+	else
+	{
 		std::cout << "Unknown materia type 'fire' correctly returned null" << std::endl;
 	}
 
@@ -113,17 +122,22 @@ int main(void)
 	MateriaSource* src2 = new MateriaSource(*(MateriaSource*)src);
 	tmp = src2->createMateria("ice");
 	bool inventoryFull_assigned = true;
-	for (int i = 0; i < 4; ++i) {
-		if (assigned.getMateria(i) == nullptr) {
+	for (int i = 0; i < 4; ++i)
+	{
+		if (assigned.getMateria(i) == nullptr)
+		{
 			inventoryFull_assigned = false;
 			break;
 		}
 	}
-	if (!inventoryFull_assigned && tmp) {
+	if (!inventoryFull_assigned && tmp)
+	{
 		std::cout << "src2 creates and equips 'ice' for assigned: ";
 		assigned.equip(tmp);
 		assigned.use(3, *bob);
-	} else if (tmp && groundCount < 4) {
+	}
+	else if (tmp && groundCount < 4)
+	{
 		std::cout << "Assigned inventory full, storing src2's materia on ground" << std::endl;
 		groundMaterias[groundCount++] = tmp;
 	}
@@ -144,8 +158,10 @@ int main(void)
 	// Clean up all ground materias
 	std::cout << "\n===== Test 7: Memory Cleanup =====" << std::endl;
 	std::cout << "Cleaning up " << groundCount << " materias from ground..." << std::endl;
-	for (int i = 0; i < groundCount; ++i) {
-		if (groundMaterias[i]) {
+	for (int i = 0; i < groundCount; ++i)
+	{
+		if (groundMaterias[i])
+		{
 			std::cout << "Deleting " << groundMaterias[i]->getType() << " materia" << std::endl;
 			delete groundMaterias[i];
 		}
