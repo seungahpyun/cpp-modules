@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:10:10 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:01:22 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:41:59 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class WrongAnimal
 {
 	protected:
-		std::string type;
+		std::string _type;
 
 	public:
 		WrongAnimal();

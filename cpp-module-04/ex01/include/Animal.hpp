@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:33 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:46:48 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:44:52 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal
 {
 	protected:
-		std::string type;
+		std::string _type;
 
 	public:
 		Animal();

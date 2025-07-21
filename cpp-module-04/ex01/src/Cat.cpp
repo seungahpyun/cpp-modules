@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:35 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:42:18 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:43:11 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 Cat::Cat() : Animal()
 {
 	std::cout << "Cat default constructor called" << std::endl;
-	type = "Cat";
-	brain = new Brain();
+	_type = "Cat";
+	_brain = new Brain();
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	brain = new Brain(*other.brain);
+	_brain = new Brain(*other._brain);
 }
 
 Cat& Cat::operator=(const Cat& other)
@@ -31,9 +31,9 @@ Cat& Cat::operator=(const Cat& other)
 	if (this != &other)
 	{
 		Animal::operator=(other);
-		if (brain)
-			delete brain;
-		brain = new Brain(*other.brain);
+		if (_brain)
+			delete _brain;
+		_brain = new Brain(*other._brain);
 	}
 	return *this;
 }
@@ -41,9 +41,9 @@ Cat& Cat::operator=(const Cat& other)
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
-	if (brain)
-		delete brain;
-	brain = nullptr;
+	if (_brain)
+		delete _brain;
+	_brain = nullptr;
 }
 
 void Cat::makeSound() const
@@ -53,13 +53,13 @@ void Cat::makeSound() const
 
 void Cat::setIdea(int index, const std::string& idea)
 {
-	if (brain)
-		brain->setIdea(index, idea);
+	if (_brain)
+		_brain->setIdea(index, idea);
 }
 
 std::string Cat::getIdea(int index) const
 {
-	if (brain)
-		return brain->getIdea(index);
+	if (_brain)
+		return _brain->getIdea(index);
 	return "";
 }

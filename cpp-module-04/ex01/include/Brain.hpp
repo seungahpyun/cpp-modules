@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:46:09 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:45:41 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:41:41 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Brain
 {
 	private:
-		std::string ideas[100];
+		std::string _ideas[100];
 
 	public:
 		Brain();
