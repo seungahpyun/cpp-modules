@@ -6,27 +6,24 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:27 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 14:51:57 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 15:18:48 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-// Default constructor
 Character::Character() : _name("DefaultCharacter"), _held_items(0)
 {
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = nullptr;
 }
 
-// Parameterized constructor
 Character::Character(std::string const & name) : _name(name), _held_items(0)
 {
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = nullptr;
 }
 
-// Copy constructor
 Character::Character(const Character& other) : _name(other._name), _held_items(other._held_items)
 {
 	for (int i = 0; i < 4; i++)
@@ -38,7 +35,6 @@ Character::Character(const Character& other) : _name(other._name), _held_items(o
 	}
 }
 
-// Assignment operator
 Character& Character::operator=(const Character& other)
 {
 	if (this != &other)
@@ -68,7 +64,6 @@ Character& Character::operator=(const Character& other)
 	return *this;
 }
 
-// Destructor
 Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
@@ -78,13 +73,11 @@ Character::~Character()
 	}
 }
 
-// Get character name
 std::string const & Character::getName() const
 {
 	return _name;
 }
 
-// Equip materia
 void Character::equip(AMateria* m)
 {
 	if (!m)
@@ -156,7 +149,6 @@ void Character::use(int idx, ICharacter& target)
 	_inventory[idx]->use(target);
 }
 
-// Get materia at specific index (helper for memory management)
 AMateria* Character::getMateria(int idx) const
 {
 	if (idx < 0 || idx >= 4)
@@ -164,19 +156,16 @@ AMateria* Character::getMateria(int idx) const
 	return _inventory[idx];
 }
 
-// Get current held items count
 int Character::getHeldItems() const
 {
 	return _held_items;
 }
 
-// Check if can equip more items
 bool Character::canEquip() const
 {
 	return _held_items < 4;
 }
 
-// Print inventory status (for debugging)
 void Character::printInventory() const
 {
 	std::cout << _name << "'s inventory (" << _held_items << "/4):" << std::endl;
