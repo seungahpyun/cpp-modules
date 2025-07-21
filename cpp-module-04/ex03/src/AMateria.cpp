@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:25 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 14:54:31 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 15:05:14 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ AMateria& AMateria::operator=(const AMateria& other)
 	if (this != &other)
 	{
 		// Copying type doesn't make sense according to exercise
-		// type = other.type;
 	}
 	return *this;
 }
