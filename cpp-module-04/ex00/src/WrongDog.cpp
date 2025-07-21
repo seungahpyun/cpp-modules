@@ -1,26 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   WrongDog.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/07/21 08:58:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 08:59:08 by spyun         ########   odam.nl         */
+/*   Created: 2025/07/21 09:04:53 by spyun         #+#    #+#                 */
+/*   Updated: 2025/07/21 09:04:54 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	
-	return 0;
-}

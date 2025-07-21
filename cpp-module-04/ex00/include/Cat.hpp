@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Cat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/07/21 08:58:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 08:59:08 by spyun         ########   odam.nl         */
+/*   Created: 2025/07/21 09:03:38 by spyun         #+#    #+#                 */
+/*   Updated: 2025/07/21 09:07:52 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+#ifndef CAT_HPP
+# define CAT_HPP
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	
-	return 0;
-}
+#include "Animal.hpp"
+
+class Cat : public Animal
+{
+	public:
+		Cat();
+		Cat(const Cat& other);
+		Cat& operator=(const Cat& other);
+		virtual ~Cat();
+
+		void makeSound() const override;
+};
+
+std::ostream& operator<<(std::ostream& os, const Cat& cat);
+
+#endif

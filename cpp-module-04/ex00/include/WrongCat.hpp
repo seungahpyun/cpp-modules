@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   WrongCat.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/07/21 08:58:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 08:59:08 by spyun         ########   odam.nl         */
+/*   Created: 2025/07/21 09:04:51 by spyun         #+#    #+#                 */
+/*   Updated: 2025/07/21 09:09:47 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	
-	return 0;
-}
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
+{
+	public:
+		WrongCat();
+		WrongCat(const WrongCat& other);
+		WrongCat& operator=(const WrongCat& other);
+		virtual ~WrongCat();
+
+		void makeSound() const override;
+};
+
+std::ostream& operator<<(std::ostream& os, const WrongCat& wrongCat);
+
+#endif

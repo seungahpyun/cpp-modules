@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Animal.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/07/21 08:58:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 08:59:08 by spyun         ########   odam.nl         */
+/*   Created: 2025/07/21 09:03:33 by spyun         #+#    #+#                 */
+/*   Updated: 2025/07/21 09:11:11 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	
-	return 0;
-}
+#include <iostream>
+
+class Animal
+{
+	protected:
+		std::string type;
+
+	public:
+		Animal();
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal();
+
+		virtual void makeSound() const;
+		std::string getType() const;
+};
+
+std::ostream& operator<<(std::ostream& os, const Animal& animal);
+
+#endif
