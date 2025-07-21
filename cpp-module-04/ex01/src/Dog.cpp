@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 09:03:40 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 10:42:20 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 11:17:01 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ Dog::~Dog()
 	std::cout << "Dog destructor called" << std::endl;
 	if (brain)
 		delete brain;
+	brain = nullptr;
 }
 
 void Dog::makeSound() const
