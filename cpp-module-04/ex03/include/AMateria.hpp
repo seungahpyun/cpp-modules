@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:06 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 14:54:02 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 15:01:14 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define AMATERIA_HPP
 
 #include <iostream>
+
 class ICharacter;
 
 class AMateria
