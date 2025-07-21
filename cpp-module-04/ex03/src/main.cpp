@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:25 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 14:34:36 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 15:07:41 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main(void)
 {
-	AMateria* groundMaterias[16];
+	AMateria* groundMaterias[4];
 	int groundCount = 0;
 
 	std::cout << "\n===== Test 1: Learn, Equip, Use =====" << std::endl;
@@ -59,14 +59,14 @@ int main(void)
 		me->equip(tmp);
 	} else {
 		std::cout << "Inventory full, storing extra materia on ground" << std::endl;
-		if (tmp && groundCount < 16)
+		if (tmp && groundCount < 4)
 			groundMaterias[groundCount++] = tmp;
 	}
 
 	// Unequip slot 2 and store on ground
 	AMateria* unequipped = ((Character*)me)->getMateria(2);
 	me->unequip(2);
-	if (unequipped && groundCount < 16) {
+	if (unequipped && groundCount < 4) {
 		std::cout << "Storing unequipped materia on ground" << std::endl;
 		groundMaterias[groundCount++] = unequipped;
 	}
@@ -82,7 +82,7 @@ int main(void)
 	tmp = src->createMateria("fire");
 	if (tmp) {
 		std::cout << "Unexpected: fire materia was created!" << std::endl;
-		if (groundCount < 16)
+		if (groundCount < 4)
 			groundMaterias[groundCount++] = tmp;
 	} else {
 		std::cout << "Unknown materia type 'fire' correctly returned null" << std::endl;
@@ -94,7 +94,7 @@ int main(void)
 	clone->use(0, *bob);
 	AMateria* cloneUnequipped = clone->getMateria(0);
 	clone->unequip(0);
-	if (cloneUnequipped && groundCount < 16) {
+	if (cloneUnequipped && groundCount < 4) {
 		std::cout << "Storing clone's unequipped materia on ground" << std::endl;
 		groundMaterias[groundCount++] = cloneUnequipped;
 	}
@@ -123,7 +123,7 @@ int main(void)
 		std::cout << "src2 creates and equips 'ice' for assigned: ";
 		assigned.equip(tmp);
 		assigned.use(3, *bob);
-	} else if (tmp && groundCount < 16) {
+	} else if (tmp && groundCount < 4) {
 		std::cout << "Assigned inventory full, storing src2's materia on ground" << std::endl;
 		groundMaterias[groundCount++] = tmp;
 	}
