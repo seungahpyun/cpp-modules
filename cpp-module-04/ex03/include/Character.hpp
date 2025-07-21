@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:10 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 12:21:30 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/21 14:30:08 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@
 class Character : public ICharacter
 {
 	private:
-		std::string name;
-		AMateria* inventory[4];
+		std::string	name;
+		AMateria*	inventory[4];
+		int			held_items;
 
 	public:
+		Character();
 		Character(const std::string& name);
 		Character(const Character& other);
 		Character& operator=(const Character& other);
@@ -32,6 +34,11 @@ class Character : public ICharacter
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
+
+		AMateria* getMateria(int idx) const;
+		int getHeldItems() const;
+		bool canEquip() const;
+		void printInventory() const;
 };
 
 #endif
