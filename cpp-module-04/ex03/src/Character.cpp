@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:27 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 15:18:48 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/23 14:52:30 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void Character::equip(AMateria* m)
 			_inventory[i] = m;
 			_held_items++;
 			std::cout << "Equipped " << m->getType() << " in slot " << i
-			          << " (" << _held_items << "/4)" << std::endl;
+				<< " (" << _held_items << "/4)" << std::endl;
 			return;
 		}
 	}
