@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/21 11:26:25 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/21 15:12:07 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/23 13:41:11 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ int main(void)
 		std::cout << "Inventory full, storing extra materia on ground" << std::endl;
 		if (tmp && groundCount < 4)
 			groundMaterias[groundCount++] = tmp;
+		else if (groundCount >= 4)
+		{
+			std::cout << "Ground is full, cannot store more materias!" << std::endl;
+			delete tmp;
+		}
 	}
 
 	// Unequip slot 2 and store on ground
@@ -75,6 +80,11 @@ int main(void)
 	{
 		std::cout << "Storing unequipped materia on ground" << std::endl;
 		groundMaterias[groundCount++] = unequipped;
+	}
+	else if (groundCount >= 4)
+	{
+		std::cout << "Ground is full, cannot store more materias!" << std::endl;
+		delete unequipped;
 	}
 
 	// Refill slot 2
@@ -91,6 +101,11 @@ int main(void)
 		std::cout << "Unexpected: fire materia was created!" << std::endl;
 		if (groundCount < 4)
 			groundMaterias[groundCount++] = tmp;
+		else if (groundCount >= 4)
+		{
+			std::cout << "Ground is full, cannot store more materias!" << std::endl;
+			delete tmp;
+		}
 	}
 	else
 	{
@@ -103,9 +118,15 @@ int main(void)
 	clone->use(0, *bob);
 	AMateria* cloneUnequipped = clone->getMateria(0);
 	clone->unequip(0);
-	if (cloneUnequipped && groundCount < 4) {
+	if (cloneUnequipped && groundCount < 4)
+	{
 		std::cout << "Storing clone's unequipped materia on ground" << std::endl;
 		groundMaterias[groundCount++] = cloneUnequipped;
+	}
+	else if (groundCount >= 4)
+	{
+		std::cout << "Ground is full, cannot store more materias!" << std::endl;
+		delete cloneUnequipped;
 	}
 	std::cout << "Original uses slot 0 on bob: ";
 	me->use(0, *bob);
@@ -130,6 +151,7 @@ int main(void)
 			break;
 		}
 	}
+
 	if (!inventoryFull_assigned && tmp)
 	{
 		std::cout << "src2 creates and equips 'ice' for assigned: ";
@@ -141,6 +163,12 @@ int main(void)
 		std::cout << "Assigned inventory full, storing src2's materia on ground" << std::endl;
 		groundMaterias[groundCount++] = tmp;
 	}
+	else if (groundCount >= 4)
+	{
+		std::cout << "Ground is full, cannot store more materias!" << std::endl;
+		delete tmp;
+	}
+
 	delete src2;
 
 	// Test equipping null
