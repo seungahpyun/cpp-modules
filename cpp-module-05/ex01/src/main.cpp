@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 09:25:27 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/28 11:38:59 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/30 08:57:02 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,23 +79,47 @@ int main(void)
 		std::cout << "\n===== Test 3: Form exceptions =====" << std::endl;
 		try
 		{
-			// Form form1("Form1", 50, 100);
-			Form form2("Form2", 0, 150);
+			Form form1("Form1", 0, 150);
+			std::cout << form1 << std::endl;
+			std::cout << "\nTrying to create Form with too high sign grade..." << std::endl;
+			form1.beSigned(0);
+		}
+		catch (const Form::GradeTooHighException &e)
+		{
+			std::cerr << "Error: " << e.what() << std::endl;
+		}
 
-			// std::cout << form1 << std::endl;
-			// std::cout << form2 << std::endl;
+		try
+		{
+			{
+				Form form2("Form2", 150, 151);
+				std::cout << form2 << std::endl;
+				std::cout << "\nTrying to create Form with too low execute grade..." << std::endl;
+				form2.beSigned(151);
+			}
+		}
+		catch (const Form::GradeTooLowException &e)
+		{
+			std::cerr << "Error: " << e.what() << std::endl;
+		}
 
-			// std::cout << "\nTrying to create Form with too high sign grade..." << std::endl;
-			// form1.beSigned(0);
+		try
+		{
+			Form form3("Form3", 50, 50);
+			std::cout << form3 << std::endl;
+			std::cout << "\nTrying to sign Form3 with a bureaucrat of grade 50..." << std::endl;
+			form3.beSigned(50);
+			std::cout << "Form3 signed successfully!" << std::endl;
 
 		}
 		catch (const Form::GradeTooLowException &e)
 		{
 			std::cerr << "Error: " << e.what() << std::endl;
 		}
-		// catch (std::exception &e)
-		// {
-		// 	std::cerr << "Unexpected error: " << e.what() << std::endl;
-		// }
+		catch (const Bureaucrat::GradeTooHighException &e)
+		{
+			std::cerr << "Error: " << e.what() << std::endl;
+		}
+
 	}
 }

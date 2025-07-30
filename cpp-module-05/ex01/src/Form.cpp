@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 10:12:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/28 11:22:43 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/30 08:55:32 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,11 @@ void Form::beSigned(int bureaucratGrade)
 		_isSigned = true;
 		std::cout << _name << " has been signed by bureaucrat with grade " << bureaucratGrade << std::endl;
 	}
-	else
+	else if (bureaucratGrade < MAX_GRADE)
+	{
+		throw GradeTooHighException();
+	}
+	else if (bureaucratGrade > MIN_GRADE)
 	{
 		throw GradeTooLowException();
 	}
