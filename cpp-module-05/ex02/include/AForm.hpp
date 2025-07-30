@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/30 08:59:59 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/30 23:38:01 by seungah       ########   odam.nl         */
+/*   Updated: 2025/07/30 23:51:08 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <exception>
+#define MAX_GRADE 1
+#define MIN_GRADE 150
 
 class Bureaucrat;
 
