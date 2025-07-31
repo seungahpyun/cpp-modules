@@ -6,11 +6,12 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/30 09:00:14 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/30 23:54:53 by seungah       ########   odam.nl         */
+/*   Updated: 2025/07/31 11:26:21 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
     : AForm("Robotomy Request Form", 72, 45), _target(target) {}
