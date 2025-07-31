@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/30 09:00:01 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/30 23:53:25 by seungah       ########   odam.nl         */
+/*   Updated: 2025/07/31 12:54:14 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-    if (_grade <= MAX_GRADE)
-        throw GradeTooHighException();
-    _grade--;
+	if (_grade - 1 < MAX_GRADE)
+		throw GradeTooHighException();
+	--_grade;
 }
 
 void Bureaucrat::decrementGrade()
 {
-    if (_grade >= MIN_GRADE)
-        throw GradeTooLowException();
-    _grade++;
+	if (_grade + 1 > MIN_GRADE)
+		throw GradeTooLowException();
+	++_grade;
 }
 
 void Bureaucrat::signForm(AForm& form) const

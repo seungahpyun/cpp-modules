@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 09:25:22 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/31 12:43:55 by seungah       ########   odam.nl         */
+/*   Updated: 2025/07/31 12:53:12 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void Bureaucrat::incrementGrade()
 
 void Bureaucrat::decrementGrade()
 {
-	if (_grade >= MIN_GRADE)
+	if (_grade + 1 > MIN_GRADE)
 		throw GradeTooLowException();
 	++_grade;
 }
