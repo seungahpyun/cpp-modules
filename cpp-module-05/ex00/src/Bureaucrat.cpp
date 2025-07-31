@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 09:25:22 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/28 09:36:48 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/31 12:43:55 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-	if (_grade <= MAX_GRADE)
+	if (_grade - 1 < MAX_GRADE)
 		throw GradeTooHighException();
 	--_grade;
 }

@@ -12,6 +12,8 @@
 
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
     : AForm("Robotomy Request Form", 72, 45), _target(target) {}
@@ -43,5 +45,16 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
     if (executor.getGrade() > getExecuteGrade())
         throw GradeTooLowException();
 
-    std::cout << "Drrrr... " << _target << " has been robotomized successfully 50% of the time." << std::endl;
+    static bool seeded = false;
+    if (!seeded)
+    {
+        std::srand(std::time(NULL));
+        seeded = true;
+    }
+
+    std::cout << "Drrrr... ";
+    if (std::rand() % 2)
+        std::cout << _target << " has been robotomized successfully!" << std::endl;
+    else
+        std::cout << "The robotomy failed on " << _target << "." << std::endl;
 }

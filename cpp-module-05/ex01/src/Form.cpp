@@ -6,11 +6,12 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 10:12:26 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/30 08:55:32 by spyun         ########   odam.nl         */
+/*   Updated: 2025/07/31 12:48:24 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(const std::string &name, int signGrade, int executeGrade)
 	: _name(name), _signGrade(signGrade), _executeGrade(executeGrade), _isSigned(false)
@@ -50,24 +51,18 @@ int Form::getExecuteGrade() const
 	return _executeGrade;
 }
 
-
 bool Form::getIsSigned() const
 {
 	return _isSigned;
 }
 
-void Form::beSigned(int bureaucratGrade)
+void Form::beSigned(const Bureaucrat &bureaucrat)
 {
-	if (bureaucratGrade < _signGrade)
+	if (bureaucrat.getGrade() <= _signGrade)
 	{
 		_isSigned = true;
-		std::cout << _name << " has been signed by bureaucrat with grade " << bureaucratGrade << std::endl;
 	}
-	else if (bureaucratGrade < MAX_GRADE)
-	{
-		throw GradeTooHighException();
-	}
-	else if (bureaucratGrade > MIN_GRADE)
+	else
 	{
 		throw GradeTooLowException();
 	}
