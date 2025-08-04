@@ -6,15 +6,22 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 10:29:35 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/04 10:41:29 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/04 10:50:20 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 #include <iostream>
+#include <cstdlib>
 
 Base* generate(void)
 {
+	static bool initialized = false;
+	if (!initialized)
+	{
+		srand(static_cast<unsigned int>(time(nullptr))); 
+		initialized = true;
+	}
 	int random = rand() % 3;
 	if (random == 0)
 		return new A();

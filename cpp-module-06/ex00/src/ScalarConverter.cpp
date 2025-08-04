@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/01 13:15:37 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/04 09:43:53 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/04 10:53:06 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,12 @@
 #include <iomanip>
 #include <cctype>
 
-void ScalarConverter::convert(const std::string& input)
-{
-	if (isChar(input))
-	{
-		convertFromChar(input);
-	}
-	else if (isSpecialFloat(input))
-	{
-		convertFromSpecialFloat(input);
-	}
-	else if (isSpecialDouble(input))
-	{
-		convertFromSpecialDouble(input);
-	}
-	else if (isFloat(input))
-	{
-		convertFromFloat(input);
-	}
-	else if (isDouble(input))
-	{
-		convertFromDouble(input);
-	}
-	else if (isInt(input))
-	{
-		convertFromInt(input);
-	}
-	else
-	{
-		printImpossibleAll();
-	}
-}
-
-bool ScalarConverter::isChar(const std::string& input)
+bool isChar(const std::string& input)
 {
 	return (input.length() == 3 && input[0] == '\'' && input[2] == '\'');
 }
 
-bool ScalarConverter::isInt(const std::string& input)
+bool isInt(const std::string& input)
 {
 	if (input.empty())
 		return false;
@@ -82,34 +50,7 @@ bool ScalarConverter::isInt(const std::string& input)
 	}
 }
 
-bool ScalarConverter::isFloat(const std::string& input)
-{
-	if (input.empty() || input.back() != 'f')
-		return false;
-
-	std::string withoutF = input.substr(0, input.length() - 1);
-	return isValidDecimal(withoutF);
-}
-
-bool ScalarConverter::isDouble(const std::string& input)
-{
-	if (input.empty() || input.back() == 'f')
-		return false;
-
-	return isValidDecimal(input);
-}
-
-bool ScalarConverter::isSpecialFloat(const std::string& input)
-{
-	return (input == "nanf" || input == "+inff" || input == "-inff" || input == "inff");
-}
-
-bool ScalarConverter::isSpecialDouble(const std::string& input)
-{
-	return (input == "nan" || input == "+inf" || input == "-inf" || input == "inf");
-}
-
-bool ScalarConverter::isValidDecimal(const std::string& input)
+bool isValidDecimal(const std::string& input)
 {
 	if (input.empty())
 		return false;
@@ -136,11 +77,37 @@ bool ScalarConverter::isValidDecimal(const std::string& input)
 			return false;
 		}
 	}
-
 	return hasDecimalPoint;
 }
 
-void ScalarConverter::convertFromChar(const std::string& input)
+bool isFloat(const std::string& input)
+{
+	if (input.empty() || input.back() != 'f')
+		return false;
+
+	std::string withoutF = input.substr(0, input.length() - 1);
+	return isValidDecimal(withoutF);
+}
+
+bool isDouble(const std::string& input)
+{
+	if (input.empty() || input.back() == 'f')
+		return false;
+
+	return isValidDecimal(input);
+}
+
+bool isSpecialFloat(const std::string& input)
+{
+	return (input == "nanf" || input == "+inff" || input == "-inff" || input == "inff");
+}
+
+bool isSpecialDouble(const std::string& input)
+{
+	return (input == "nan" || input == "+inf" || input == "-inf" || input == "inf");
+}
+
+void convertFromChar(const std::string& input)
 {
 	char value = input[1];
 
@@ -153,23 +120,30 @@ void ScalarConverter::convertFromChar(const std::string& input)
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value) << std::endl;
 }
 
-void ScalarConverter::convertFromInt(const std::string& input)
+void convertFromInt(const std::string& input)
 {
-	int value = std::stoi(input);
+	try
+	{
+		int value = std::stoi(input);
 
-	std::cout << "char: ";
-	if (value < 0 || value > 127)
-		std::cout << "impossible" << std::endl;
-	else if (!std::isprint(static_cast<char>(value)))
-		std::cout << "Non displayable" << std::endl;
-	else
-		std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
-	std::cout << "int: " << value << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value) << std::endl;
+		std::cout << "char: ";
+		if (value < 0 || value > 127)
+			std::cout << "impossible" << std::endl;
+		else if (!std::isprint(static_cast<char>(value)))
+			std::cout << "Non displayable" << std::endl;
+		else
+			std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
+		std::cout << "int: " << value << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value) << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
-void ScalarConverter::convertFromFloat(const std::string& input)
+void convertFromFloat(const std::string& input)
 {
 	std::string withoutF = input.substr(0, input.length() - 1);
 	float value = std::stof(withoutF);
@@ -211,7 +185,7 @@ void ScalarConverter::convertFromFloat(const std::string& input)
 	}
 }
 
-void ScalarConverter::convertFromDouble(const std::string& input)
+void convertFromDouble(const std::string& input)
 {
 	double value = std::stod(input);
 
@@ -252,7 +226,7 @@ void ScalarConverter::convertFromDouble(const std::string& input)
 	}
 }
 
-void ScalarConverter::convertFromSpecialFloat(const std::string& input)
+void convertFromSpecialFloat(const std::string& input)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
@@ -267,7 +241,7 @@ void ScalarConverter::convertFromSpecialFloat(const std::string& input)
 		std::cout << "-inf" << std::endl;
 }
 
-void ScalarConverter::convertFromSpecialDouble(const std::string& input)
+void convertFromSpecialDouble(const std::string& input)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
@@ -283,10 +257,42 @@ void ScalarConverter::convertFromSpecialDouble(const std::string& input)
 	std::cout << "double: " << input << std::endl;
 }
 
-void ScalarConverter::printImpossibleAll()
+void printImpossibleAll()
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 	std::cout << "float: impossible" << std::endl;
 	std::cout << "double: impossible" << std::endl;
+}
+
+void ScalarConverter::convert(const std::string& input)
+{
+	if (isChar(input))
+	{
+		convertFromChar(input);
+	}
+	else if (isSpecialFloat(input))
+	{
+		convertFromSpecialFloat(input);
+	}
+	else if (isSpecialDouble(input))
+	{
+		convertFromSpecialDouble(input);
+	}
+	else if (isFloat(input))
+	{
+		convertFromFloat(input);
+	}
+	else if (isDouble(input))
+	{
+		convertFromDouble(input);
+	}
+	else if (isInt(input))
+	{
+		convertFromInt(input);
+	}
+	else
+	{
+		printImpossibleAll();
+	}
 }
