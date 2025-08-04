@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 10:12:23 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/28 11:14:23 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/04 12:15:00 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char *what() const throw() override;
+				const char *what() const noexcept override;
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char *what() const throw() override;
+				const char *what() const noexcept override;
 		};
 };
 
