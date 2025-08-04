@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/30 09:00:11 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/30 23:39:01 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/04 09:02:01 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 
 class PresidentialPardonForm : public AForm
 {
-    private:
-        std::string _target;
+	private:
+		std::string _target;
 
-    public:
-        PresidentialPardonForm(const std::string& target);
-        PresidentialPardonForm(const PresidentialPardonForm& other);
-        PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
-        virtual ~PresidentialPardonForm();
+	public:
+		PresidentialPardonForm(const std::string& target);
+		PresidentialPardonForm(const PresidentialPardonForm& other);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
+		virtual ~PresidentialPardonForm();
 
-        const std::string& getTarget() const;
-        virtual void execute(const Bureaucrat& executor) const override;
+		const std::string& getTarget() const;
+		virtual void execute(const Bureaucrat& executor) const override;
 };
 
 #endif

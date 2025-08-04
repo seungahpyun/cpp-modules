@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/31 00:00:00 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/31 12:29:34 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/04 09:02:51 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ Intern::Intern()
 
 Intern::Intern(const Intern& other)
 {
-    (void)other;
+	(void)other;
 }
 
 Intern& Intern::operator=(const Intern& other)
 {
-    (void)other;
-    return *this;
+	(void)other;
+	return *this;
 }
 
 Intern::~Intern()
@@ -37,39 +37,39 @@ Intern::~Intern()
 
 AForm* Intern::createShrubberyCreationForm(const std::string& target)
 {
-    return new ShrubberyCreationForm(target);
+	return new ShrubberyCreationForm(target);
 }
 
 AForm* Intern::createRobotomyRequestForm(const std::string& target)
 {
-    return new RobotomyRequestForm(target);
+	return new RobotomyRequestForm(target);
 }
 
 AForm* Intern::createPresidentialPardonForm(const std::string& target)
 {
-    return new PresidentialPardonForm(target);
+	return new PresidentialPardonForm(target);
 }
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 {
-    static const FormCreator forms[] = 
-    {
-        {"shrubbery creation", &Intern::createShrubberyCreationForm},
-        {"robotomy request", &Intern::createRobotomyRequestForm},
-        {"presidential pardon", &Intern::createPresidentialPardonForm}
-    };
-    
-    const int numForms = sizeof(forms) / sizeof(forms[0]);
-    
-    for (int i = 0; i < numForms; i++)
-    {
-        if (forms[i].name == formName)
-        {
-            std::cout << "Intern creates " << formName << std::endl;
-            return forms[i].creator(target);
-        }
-    }
-    
-    std::cout << "Error: Form '" << formName << "' does not exist" << std::endl;
-    return nullptr;
+	static const FormCreator forms[] =
+	{
+		{"shrubbery creation", &Intern::createShrubberyCreationForm},
+		{"robotomy request", &Intern::createRobotomyRequestForm},
+		{"presidential pardon", &Intern::createPresidentialPardonForm}
+	};
+
+	const int numForms = sizeof(forms) / sizeof(forms[0]);
+
+	for (int i = 0; i < numForms; i++)
+	{
+		if (forms[i].name == formName)
+		{
+			std::cout << "Intern creates " << formName << std::endl;
+			return forms[i].creator(target);
+		}
+	}
+
+	std::cout << "Error: Form '" << formName << "' does not exist" << std::endl;
+	return nullptr;
 }
