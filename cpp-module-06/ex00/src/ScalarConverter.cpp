@@ -6,11 +6,9 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/01 13:15:37 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/01 13:25:24 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/04 09:16:19 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-
 

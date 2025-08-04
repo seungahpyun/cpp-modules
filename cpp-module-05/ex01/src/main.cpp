@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 09:25:27 by spyun         #+#    #+#                 */
-/*   Updated: 2025/07/30 08:57:02 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/04 09:20:02 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int main(void)
 			std::cerr << "Error: " << e.what() << std::endl;
 		}
 	}
+
+
 	{
 		std::cout << "\n===== Test 2: Bureaucrat decrement =====" << std::endl;
 		try
@@ -75,6 +77,8 @@ int main(void)
 		}
 	}
 
+
+	
 	{
 		std::cout << "\n===== Test 3: Form exceptions =====" << std::endl;
 		try

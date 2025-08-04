@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/30 09:00:18 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/04 09:03:45 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/04 09:16:04 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ const std::string& ShrubberyCreationForm::getTarget() const
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-	if (!isSigned())
+if (!isSigned())
 		throw FormNotSignedException();
 	if (executor.getGrade() > getExecuteGrade())
 		throw GradeTooLowException();
