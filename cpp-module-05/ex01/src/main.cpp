@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 09:25:27 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/04 09:20:02 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/04 16:28:58 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int main(void)
 	}
 
 
-	
+
 	{
 		std::cout << "\n===== Test 3: Form exceptions =====" << std::endl;
 		try
@@ -86,7 +86,6 @@ int main(void)
 			Form form1("Form1", 0, 150);
 			std::cout << form1 << std::endl;
 			std::cout << "\nTrying to create Form with too high sign grade..." << std::endl;
-			form1.beSigned(0);
 		}
 		catch (const Form::GradeTooHighException &e)
 		{
@@ -99,7 +98,6 @@ int main(void)
 				Form form2("Form2", 150, 151);
 				std::cout << form2 << std::endl;
 				std::cout << "\nTrying to create Form with too low execute grade..." << std::endl;
-				form2.beSigned(151);
 			}
 		}
 		catch (const Form::GradeTooLowException &e)
@@ -112,7 +110,8 @@ int main(void)
 			Form form3("Form3", 50, 50);
 			std::cout << form3 << std::endl;
 			std::cout << "\nTrying to sign Form3 with a bureaucrat of grade 50..." << std::endl;
-			form3.beSigned(50);
+			Bureaucrat bureaucrat("Bureaucrat", 50);
+			form3.beSigned(bureaucrat);
 			std::cout << "Form3 signed successfully!" << std::endl;
 
 		}
