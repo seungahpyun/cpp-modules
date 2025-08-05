@@ -6,12 +6,14 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 10:29:39 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/04 10:36:10 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/05 22:00:58 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BASE_HPP
 #define BASE_HPP
+
+#include <ctime>
 
 class Base
 {
