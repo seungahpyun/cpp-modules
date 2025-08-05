@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 10:29:35 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/04 10:50:20 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/05 21:58:04 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,38 +45,29 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	try
+    try
 	{
-		{
-			(void)dynamic_cast<A&>(p);
-			std::cout << "A" << std::endl;
-		}
-	}
-	catch (const std::bad_cast& e)
+        (void)dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
+        return;
+    }
+	catch (const std::bad_cast&) {}
+    
+    try
 	{
-		try
-		{
-			{
-				(void)dynamic_cast<B&>(p);
-				std::cout << "B" << std::endl;
-			}
-		}
-		catch (const std::bad_cast& e)
-		{
-			try
-			{
-				{
-					(void)dynamic_cast<C&>(p);
-					std::cout << "C" << std::endl;
-				}
-			}
-			catch(const std::bad_cast& e)
-			{
-				std::cerr << e.what() << std::endl;
-			}
-
-		}
-
-	}
-
+        (void)dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        return;
+    } 
+	catch (const std::bad_cast&) {}
+    
+    try
+	{
+        (void)dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        return;
+    }
+	catch (const std::bad_cast&) {}
+    
+    std::cout << "Unknown type" << std::endl;
 }
