@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/05 09:20:07 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/05 09:21:50 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/05 10:15:23 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ template <typename T>
 const T &max(const T &a, const T &b)
 {
 	return (a > b) ? a : b;
-}
-
-template <typename T>
-void print(const T &value)
-{
-	std::cout << value << std::endl;
 }
 
 #endif
