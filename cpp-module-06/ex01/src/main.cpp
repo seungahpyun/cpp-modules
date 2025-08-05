@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 09:51:38 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/04 10:27:54 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/05 22:00:21 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 
 	// note: if free here then segmentation fault occurs
 	// because deserializedData points to the same memory as data, which is deleted
-	// delete data;
+	delete data;
 	// delete deserializedData;
 	return 0;
 }
