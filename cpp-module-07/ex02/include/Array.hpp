@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/05 10:20:53 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/06 10:09:19 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/06 14:19:48 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <stdexcept>
 
 template <typename T>
 class Array
 {
 	private:
-		T		*_data;
 		size_t	_size;
+		T*		_data;
 
 	public:
 		Array() : _size(0), _data(nullptr) {};
