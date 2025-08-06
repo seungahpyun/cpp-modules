@@ -1,7 +1,7 @@
 NAME = ex00
 CC = c++
 SANITIZE = -fsanitize=address
-CFLAGS = -g3 $(SANITIZE) -Wall -Wextra -Werror -std=c++98
+CFLAGS = -g3 $(SANITIZE) -Wall -Wextra -Werror
 SRC_DIR = src
 OBJ_DIR = obj
 INC = -I./include
