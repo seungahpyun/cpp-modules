@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/01 13:15:37 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/04 10:53:06 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/06 14:14:34 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@
 
 bool isChar(const std::string& input)
 {
-	return (input.length() == 3 && input[0] == '\'' && input[2] == '\'');
+	if (input.length() == 3 && input[0] == '\'' && input[2] == '\'')
+		return true;
+	if (input.length() == 1)
+		return true;
+
+	return false;
 }
 
 bool isInt(const std::string& input)
@@ -109,12 +114,19 @@ bool isSpecialDouble(const std::string& input)
 
 void convertFromChar(const std::string& input)
 {
-	char value = input[1];
+	char value;
+
+
+	if (input.length() == 3 && input[0] == '\'' && input[2] == '\'')
+		value = input[1];
+	else
+		value = input[0];
 
 	if (std::isprint(value))
 		std::cout << "char: '" << value << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
+
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value) << std::endl;
