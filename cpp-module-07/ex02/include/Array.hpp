@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/05 10:20:53 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/06 10:01:57 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/06 10:09:19 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class Array
 		size_t	_size;
 
 	public:
-		Array<T>() : _size(0), _data(nullptr) {};
+		Array() : _size(0), _data(nullptr) {};
+
 		Array(size_t n) : _size(n)
 		{
 			if (n == 0)
@@ -31,18 +32,59 @@ class Array
 			else
 				_data = new T[n]();
 		}
-		Array(const Array &other);
-		~Array<T>()
+
+		Array(const Array &other) : _size(other._size)
+		{
+			if (_size == 0)
+				_data = nullptr;
+			else
+			{
+				_data = new T[_size];
+				for (size_t i = 0; i < _size; ++i)
+					_data[i] = other._data[i];
+			}
+		};
+
+		~Array()
 		{
 			if (_data)
 				delete[] _data;
 		};
 
-		Array &operator=(const Array &other);
-		T &operator[](size_t index);
-		const T &operator[](size_t index) const;
+		Array &operator=(const Array &other)
+		{
+			if (this != &other)
+			{
+				if (_data)
+					delete[] _data;
+				_size = other._size;
+				if (_size == 0)
+					_data = nullptr;
+				else
+				{
+					_data = new T[_size];
+					for (size_t i = 0; i < _size; ++i)
+						_data[i] = other._data[i];
+				}
+			}
+			return *this;
+		};
 
-		size_t getSize() const;
-}
+		T &operator[](size_t index)
+		{
+			if (index >= _size)
+				throw std::out_of_range("Array index out of range");
+			return _data[index];
+		}
+
+		const T &operator[](size_t index) const
+		{
+			if (index >= _size)
+				throw std::out_of_range("Array index out of range");
+			return _data[index];
+		};
+
+		size_t size() const { return _size; };
+};
 
 #endif
