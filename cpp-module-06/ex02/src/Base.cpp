@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 10:29:35 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/05 21:58:04 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/06 09:03:35 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Base* generate(void)
 	static bool initialized = false;
 	if (!initialized)
 	{
-		srand(static_cast<unsigned int>(time(nullptr))); 
+		srand(static_cast<unsigned int>(time(nullptr)));
 		initialized = true;
 	}
 	int random = rand() % 3;
@@ -45,29 +45,29 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-    try
+	try
 	{
-        (void)dynamic_cast<A&>(p);
-        std::cout << "A" << std::endl;
-        return;
-    }
+		(void)dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+		return;
+	}
 	catch (const std::bad_cast&) {}
-    
-    try
+
+	try
 	{
-        (void)dynamic_cast<B&>(p);
-        std::cout << "B" << std::endl;
-        return;
-    } 
+		(void)dynamic_cast<B&>(p);
+		std::cout << "B" << std::endl;
+		return;
+	}
 	catch (const std::bad_cast&) {}
-    
-    try
+
+	try
 	{
-        (void)dynamic_cast<C&>(p);
-        std::cout << "C" << std::endl;
-        return;
-    }
+		(void)dynamic_cast<C&>(p);
+		std::cout << "C" << std::endl;
+		return;
+	}
 	catch (const std::bad_cast&) {}
-    
-    std::cout << "Unknown type" << std::endl;
+
+	std::cout << "Unknown type" << std::endl;
 }
