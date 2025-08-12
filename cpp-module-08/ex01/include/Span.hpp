@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/06 14:54:46 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/12 07:56:10 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/12 07:57:57 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Span
 		Span &operator=(const Span &other);
 		~Span();
 
-		
+
 		template <typename InputIterator>
 		void addNumbers(InputIterator first, InputIterator last)
 		{
@@ -44,13 +44,13 @@ class Span
 				++first;
 			}
 		}
-		
-		void addNumber(int number);
-		int shortestSpan() const;
-		int longestSpan() const;
-		unsigned int size() const;
-		unsigned int maxSize() const;
-		const std::vector<int> &getNumbers() const;
+
+	void addNumber(int number);
+	int shortestSpan() const;
+	int longestSpan() const;
+	unsigned int size() const;
+	unsigned int maxSize() const;
+	const std::vector<int> &getNumbers() const;
 };
 
 #endif
