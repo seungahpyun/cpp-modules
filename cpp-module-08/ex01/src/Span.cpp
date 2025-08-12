@@ -6,11 +6,13 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/06 14:54:40 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/11 11:36:27 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/12 07:53:19 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <algorithm>
+#include <limits>
 
 Span::Span(unsigned int n) : _maxSize(n) {}
 
@@ -33,16 +35,6 @@ void Span::addNumber(int number)
     if (_numbers.size() >= _maxSize)
         throw std::length_error("Span is full");
     _numbers.push_back(number);
-}
-
-template <typename InputIterator>
-void Span::addNumbers(InputIterator first, InputIterator last)
-{
-    while (first != last)
-    {
-        addNumber(*first);
-        ++first;
-    }
 }
 
 int Span::shortestSpan() const
