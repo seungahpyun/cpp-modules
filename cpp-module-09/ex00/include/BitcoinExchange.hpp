@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/13 08:55:28 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/13 08:57:18 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/14 09:50:55 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class BitcoinExchange
 {
     private:
         std::map<std::string, double> _database;
-        
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& other);
