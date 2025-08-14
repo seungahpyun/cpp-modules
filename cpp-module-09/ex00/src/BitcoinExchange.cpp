@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/13 08:55:37 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/14 09:51:32 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/14 10:04:01 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,21 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 
 BitcoinExchange::~BitcoinExchange() {}
 
+bool BitcoinExchange::loadDatabase(const std::string& filename)
+{
+    std::ifstream file(filename);
+    if (!file.is_open())
+    {
+        std::cerr << "Error: Could not open file " << filename << std::endl;
+        return false;
+    }
 
+    std::string line;
+    while (std::getline(file, line))
+    {
+        // Process each line and populate the _database
+    }
+
+    file.close();
+    return true;
+}
