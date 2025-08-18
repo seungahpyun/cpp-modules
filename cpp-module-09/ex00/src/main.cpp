@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/13 08:55:50 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/18 08:58:02 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/18 11:08:14 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
-	BitcoinExchange exchange;
-	if (!exchange.loadDatabase("data.csv"))
+	std::map<std::string, double> database;
+
+	if (!loadDatabase("data.csv", database))
 	{
-		std::cerr << "Error: could not load database." << std::endl;
 		return 1;
 	}
-	exchange.processInputFile(argv[1]);
+
+	processInputFile(argv[1], database);
 	return 0;
 }
