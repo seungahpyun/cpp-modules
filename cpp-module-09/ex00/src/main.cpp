@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/13 08:55:50 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/18 12:21:59 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/19 14:14:38 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	if (!loadDatabase("data.csv", database))
 	{
 		return 1;
-		}
+	}
 
 	processInputFile(argv[1], database);
 	return 0;
