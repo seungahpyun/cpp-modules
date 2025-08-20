@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/13 08:55:37 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/20 11:59:31 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/20 12:03:49 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,38 @@ void processInputFile(const std::string& filename, const std::map<std::string, d
     while (std::getline(file, line)) {
         std::string date;
         double value;
+        
         if (parseInputLine(line, date, value)) 
         {
             if (!isValidDate(date))
             {
-                std::cerr << "Error: bad date => " << date << std::endl;
+                std::cerr << "Error: bad input => " << date << std::endl;
+                continue;
             }
-            else if (!isValidValue(value))
+            if (value < 0)
             {
-                std::cerr << "Error: bad value => " << value << std::endl;
+                std::cerr << "Error: not a positive number." << std::endl;
+                continue;
             }
-            else
+            if (value > 1000)
             {
-                double exchangeRate = getExchangeRate(date, database);
-                if (exchangeRate < 0.0)
-                {
-                    std::cerr << "Error: no exchange rate found for date => " << date << std::endl;
-                    continue;
-                }
-                double result = exchangeRate * value;
-                std::cout << date << " => " << value << " * " << exchangeRate << " = " << result << std::endl;
+                std::cerr << "Error: too large a number." << std::endl;
+                continue;
             }
-        } else {
-            std::cerr << "Error: bad input => " << line << std::endl;
+            
+            double exchangeRate = getExchangeRate(date, database);
+            if (exchangeRate < 0.0)
+            {
+                std::cerr << "Error: no exchange rate found for date => " << date << std::endl;
+                continue;
+            }
+            double result = value * exchangeRate;
+            std::cout << date << " => " << value << " = " << result << std::endl;
+        } 
+        else 
+        {
+            if (line != "date | value")
+                std::cerr << "Error: bad input => " << line << std::endl;
         }
     }
 }
@@ -119,31 +128,68 @@ bool parseInputLine(const std::string& line, std::string& date, double& value)
 
 double getExchangeRate(const std::string& date, const std::map<std::string, double>& database)
 {
-    auto it = database.lower_bound(date);
+    auto it = database.find(date);
+    if (it != database.end())
+        return it->second;
+
+    it = database.lower_bound(date);
     if (it != database.begin())
     {
         --it;
         return it->second;
     }
+    
     return -1.0;
 }
 
 bool isValidDate(const std::string& date)
 {
-	std::regex datePattern(R"(\d{4}-\d{2}-\d{2})");
-	return std::regex_match(date, datePattern);
+    if (date.length() != 10)
+        return false;
+    if (date[4] != '-' || date[7] != '-')
+        return false;
+
+    std::string yearStr = date.substr(0, 4);
+    std::string monthStr = date.substr(5, 2);
+    std::string dayStr = date.substr(8, 2);
+    
+    try
+    {
+        int year = std::stoi(yearStr);
+        int month = std::stoi(monthStr);
+        int day = std::stoi(dayStr);
+        
+        if (year < 1000 || year > 9999)
+            return false;
+        if (month < 1 || month > 12)
+            return false;
+        if (day < 1 || day > 31)
+            return false;
+
+        if (month == 2 && day > 29)
+            return false;
+        if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+            return false;
+            
+    }
+    catch (const std::exception&)
+    {
+        return false;
+    }
+    
+    return true;
 }
 
 bool isValidValue(double value)
 {
-	return value >= 0.0 && value <= 1000.0;
+    return value >= 0.0 && value <= 1000.0;
 }
 
 std::string trim(const std::string& str)
 {
-	size_t first = str.find_first_not_of(" \t\n\r\f\v");
-	size_t last = str.find_last_not_of(" \t\n\r\f\v");
-	if (first == std::string::npos || last == std::string::npos)
-		return "";
-	return str.substr(first, last - first + 1);
+    size_t first = str.find_first_not_of(" \t\n\r\f\v");
+    size_t last = str.find_last_not_of(" \t\n\r\f\v");
+    if (first == std::string::npos || last == std::string::npos)
+        return "";
+    return str.substr(first, last - first + 1);
 }
