@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/13 08:55:37 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/20 12:03:49 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/20 12:05:17 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 bool loadDatabase(const std::string& filename, std::map<std::string, double>& database)
 {
     std::ifstream file(filename);
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         std::cerr << "Error: could not open file." << std::endl;
         return false;
     }
 
     std::string line;
-    while (std::getline(file, line)) {
+    while (std::getline(file, line))
+    {
         std::string date;
         double value;
         if (parseCSVLine(line, date, value))
@@ -35,13 +37,15 @@ bool loadDatabase(const std::string& filename, std::map<std::string, double>& da
 void processInputFile(const std::string& filename, const std::map<std::string, double>& database)
 {
     std::ifstream file(filename);
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         std::cerr << "Error: could not open file." << std::endl;
         return;
     }
 
     std::string line;
-    while (std::getline(file, line)) {
+    while (std::getline(file, line))
+    {
         std::string date;
         double value;
         
@@ -117,9 +121,12 @@ bool parseInputLine(const std::string& line, std::string& date, double& value)
     if (!(ss >> date >> pipe >> token) || pipe != "|")
         return false;
         
-    try {
+    try
+    {
         value = std::stod(token);
-    } catch (const std::exception&) {
+    }
+    catch (const std::exception&)
+    {
         return false;
     }
 
