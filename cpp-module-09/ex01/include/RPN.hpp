@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/20 12:09:14 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/21 20:33:36 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/22 16:38:05 by seungah       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class RPN
 		bool isOperator(const std::string& token);
 		bool isNumber(const std::string& token);
 		int performOperation(int a, int b, char op);
-		void validateExpression(const std::string& expression);
 
 	public:
 		RPN();
