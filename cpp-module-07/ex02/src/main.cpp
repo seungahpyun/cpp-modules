@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/05 10:20:51 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/25 09:17:23 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/25 15:42:30 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ int main()
 		Array<int> intArray(5);
 		std::cout << "Int array size: " << intArray.size() << std::endl;
 
-		for (size_t i = 0; i < intArray.size(); ++i) {
+		for (size_t i = 0; i < intArray.size(); ++i)
+		{
 			intArray[i] = i * 10;
 		}
 
 		std::cout << "Array contents: ";
-		for (size_t i = 0; i < intArray.size(); ++i) {
+		for (size_t i = 0; i < intArray.size(); ++i)
+		{
 			std::cout << intArray[i] << " ";
 		}
 
