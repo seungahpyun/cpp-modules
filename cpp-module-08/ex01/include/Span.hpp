@@ -6,15 +6,12 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/06 14:54:46 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/25 16:01:32 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/25 17:00:54 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 #define SPAN_HPP
-
-#include <vector>
-#include <stdexcept>
 
 #include <vector>
 #include <stdexcept>
