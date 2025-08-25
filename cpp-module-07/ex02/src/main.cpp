@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/05 10:20:51 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/06 14:21:50 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/25 09:17:23 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main()
 		Array<int> assigned;
 		assigned = intArray;
 		std::cout << "Assigned array size: " << assigned.size() << std::endl;
-		
+
 		std::cout << "Testing out of bounds access..." << std::endl;
 		std::cout << intArray[10] << std::endl;
 	}
