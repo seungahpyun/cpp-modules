@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/13 08:55:28 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/20 11:56:16 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/25 08:54:00 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 bool		loadDatabase(const std::string& filename, std::map<std::string, double>& database);
 void		processInputFile(const std::string& filename, const std::map<std::string, double>& database);
 
-bool        parseCSVLine(const std::string& line, std::string& date, double& value);
-bool        parseInputLine(const std::string& line, std::string& date, double& value);
+bool		parseCSVLine(const std::string& line, std::string& date, double& value);
+bool		parseInputLine(const std::string& line, std::string& date, double& value);
 double		getExchangeRate(const std::string& date, const std::map<std::string, double>& database);
 bool		isValidDate(const std::string& date);
 bool		isValidValue(double value);
