@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/06 14:54:46 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/18 09:17:13 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/25 16:01:32 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Span
 	private:
 		std::vector<int>	_numbers;
 		unsigned int		_maxSize;
+
 	public:
 		Span(unsigned int n);
 		Span(const Span &other);

@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/11 11:41:13 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/12 07:56:49 by seungah       ########   odam.nl         */
+/*   Updated: 2025/08/25 16:01:17 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 template <typename T>
 class MutantStack : public std::stack<T>
 {
-public:
-	typedef typename std::stack<T>::container_type::iterator iterator;
-	typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+	public:
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 
-	iterator begin() { return std::stack<T>::c.begin(); }
-	iterator end() { return std::stack<T>::c.end(); }
-	const_iterator begin() const { return std::stack<T>::c.begin(); }
-	const_iterator end() const { return std::stack<T>::c.end(); }
+		iterator begin() { return std::stack<T>::c.begin(); }
+		iterator end() { return std::stack<T>::c.end(); }
+		const_iterator begin() const { return std::stack<T>::c.begin(); }
+		const_iterator end() const { return std::stack<T>::c.end(); }
 };
 
 template <typename T>
