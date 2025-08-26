@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/13 08:55:37 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/25 08:54:48 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/26 10:49:02 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,11 @@ double getExchangeRate(const std::string& date, const std::map<std::string, doub
 	return -1.0;
 }
 
+bool isLeapYear(int year)
+{
+	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
 bool isValidDate(const std::string& date)
 {
 	if (date.length() != 10)
@@ -173,8 +178,11 @@ bool isValidDate(const std::string& date)
 		if (day < 1 || day > 31)
 			return false;
 
-		if (month == 2 && day > 29)
-			return false;
+		if (month == 2)
+		{
+			if (isLeapYear(year) && day > 29) return false;
+			if (!isLeapYear(year) && day > 28) return false;
+		}
 		if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
 			return false;
 
