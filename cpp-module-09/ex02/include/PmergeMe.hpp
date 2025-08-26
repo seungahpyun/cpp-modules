@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/25 15:51:53 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/25 15:58:56 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/26 10:55:31 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ class PmergeMe
 		double deq_time;
 
 		double getTime();
+
 		void fordJohnsonVector(std::vector<int>& arr);
 		void fordJohnsonDeque(std::deque<int>& arr);
+
+		std::vector<size_t> generateJacobsthalSequence(size_t n);
 
 	public:
 		PmergeMe();

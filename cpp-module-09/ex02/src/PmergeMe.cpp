@@ -6,10 +6,9 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/25 15:51:51 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/25 15:58:28 by spyun         ########   odam.nl         */
+/*   Updated: 2025/08/26 10:55:23 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "PmergeMe.hpp"
 #include <algorithm>
@@ -74,28 +73,64 @@ void PmergeMe::processInput(int argc, char **argv)
 	}
 
 	if (vec_data.empty())
-{
+	{
 		throw std::runtime_error("Error: No valid numbers provided");
 	}
 }
 
+std::vector<size_t> PmergeMe::generateJacobsthalSequence(size_t n)
+{
+	std::vector<size_t> jacobsthal;
+	if (n == 0) return jacobsthal;
+
+	std::vector<size_t> jac_numbers;
+	jac_numbers.push_back(0);
+	jac_numbers.push_back(1);
+
+	while (jac_numbers.back() < n)
+	{
+		size_t next = jac_numbers[jac_numbers.size()-1] + 2 * jac_numbers[jac_numbers.size()-2];
+		jac_numbers.push_back(next);
+	}
+
+	std::vector<bool> used(n + 1, false);
+
+	for (size_t i = 2; i < jac_numbers.size() && jac_numbers[i] <= n; i++)
+	{
+		size_t jac_num = jac_numbers[i];
+
+		for (size_t j = std::min(jac_num, n); j > jac_numbers[i-1]; j--)
+		{
+			if (!used[j])
+			{
+				jacobsthal.push_back(j - 1);
+				used[j] = true;
+			}
+		}
+	}
+
+	for (size_t i = 1; i <= n; i++)
+	{
+		if (!used[i])
+		{
+			jacobsthal.push_back(i - 1);
+		}
+	}
+
+	return jacobsthal;
+}
+
 void PmergeMe::fordJohnsonVector(std::vector<int>& arr)
 {
-	if (arr.size() <= 1)
-	{
-		return;
-	}
+	if (arr.size() <= 1) return;
 
 	if (arr.size() == 2)
 	{
 		if (arr[0] > arr[1])
-		{
 			std::swap(arr[0], arr[1]);
-		}
 		return;
 	}
 
-	// Step 1: Create pairs and sort within pairs
 	std::vector<std::pair<int, int> > pairs;
 	bool hasOdd = arr.size() % 2 == 1;
 	int oddElement = hasOdd ? arr.back() : 0;
@@ -103,16 +138,11 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& arr)
 	for (size_t i = 0; i < arr.size() - (hasOdd ? 1 : 0); i += 2)
 	{
 		if (arr[i] > arr[i + 1])
-		{
 			pairs.push_back(std::make_pair(arr[i], arr[i + 1]));
-		}
 		else
-		{
 			pairs.push_back(std::make_pair(arr[i + 1], arr[i]));
-		}
 	}
 
-	// Step 2: Recursively sort the larger elements
 	std::vector<int> largerElements;
 	std::vector<int> smallerElements;
 
@@ -124,7 +154,6 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& arr)
 
 	fordJohnsonVector(largerElements);
 
-	// Step 3: Create main chain and pending elements
 	std::vector<int> mainChain;
 	std::vector<int> pending;
 
@@ -140,40 +169,39 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& arr)
 		}
 	}
 
-	// Add odd element to pending if exists
 	if (hasOdd)
-	{
 		pending.push_back(oddElement);
-	}
 
-	// Step 4: Insert pending elements using binary search
-	for (size_t i = 0; i < pending.size(); i++)
+	if (!pending.empty())
 	{
-		std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), pending[i]);
-		mainChain.insert(pos, pending[i]);
+		std::vector<size_t> insertOrder = generateJacobsthalSequence(pending.size());
+
+		for (size_t i = 0; i < insertOrder.size(); i++)
+		{
+			size_t idx = insertOrder[i];
+			if (idx < pending.size())
+			{
+				std::vector<int>::iterator pos = std::lower_bound(
+					mainChain.begin(), mainChain.end(), pending[idx]);
+				mainChain.insert(pos, pending[idx]);
+			}
+		}
 	}
 
 	arr = mainChain;
 }
 
-// Ford-Johnson algorithm for deque
 void PmergeMe::fordJohnsonDeque(std::deque<int>& arr)
 {
-	if (arr.size() <= 1)
-	{
-		return;
-	}
+	if (arr.size() <= 1) return;
 
 	if (arr.size() == 2)
 	{
 		if (arr[0] > arr[1])
-		{
 			std::swap(arr[0], arr[1]);
-		}
 		return;
 	}
 
-	// Step 1: Create pairs and sort within pairs
 	std::deque<std::pair<int, int> > pairs;
 	bool hasOdd = arr.size() % 2 == 1;
 	int oddElement = hasOdd ? arr.back() : 0;
@@ -181,16 +209,11 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& arr)
 	for (size_t i = 0; i < arr.size() - (hasOdd ? 1 : 0); i += 2)
 	{
 		if (arr[i] > arr[i + 1])
-		{
 			pairs.push_back(std::make_pair(arr[i], arr[i + 1]));
-		}
 		else
-		{
 			pairs.push_back(std::make_pair(arr[i + 1], arr[i]));
-		}
 	}
 
-	// Step 2: Recursively sort the larger elements
 	std::deque<int> largerElements;
 	std::deque<int> smallerElements;
 
@@ -202,7 +225,6 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& arr)
 
 	fordJohnsonDeque(largerElements);
 
-	// Step 3: Create main chain and pending elements
 	std::deque<int> mainChain;
 	std::deque<int> pending;
 
@@ -218,22 +240,28 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& arr)
 		}
 	}
 
-	// Add odd element to pending if exists
-	if (hasOdd) {
+	if (hasOdd)
 		pending.push_back(oddElement);
-	}
 
-	// Step 4: Insert pending elements using binary search
-	for (size_t i = 0; i < pending.size(); i++)
+	if (!pending.empty())
 	{
-		std::deque<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), pending[i]);
-		mainChain.insert(pos, pending[i]);
+		std::vector<size_t> insertOrder = generateJacobsthalSequence(pending.size());
+
+		for (size_t i = 0; i < insertOrder.size(); i++)
+		{
+			size_t idx = insertOrder[i];
+			if (idx < pending.size())
+			{
+				std::deque<int>::iterator pos = std::lower_bound(
+					mainChain.begin(), mainChain.end(), pending[idx]);
+				mainChain.insert(pos, pending[idx]);
+			}
+		}
 	}
 
 	arr = mainChain;
 }
 
-// Sort using vector
 void PmergeMe::sortWithVector()
 {
 	double startTime = getTime();
@@ -242,7 +270,6 @@ void PmergeMe::sortWithVector()
 	vec_time = endTime - startTime;
 }
 
-// Sort using deque
 void PmergeMe::sortWithDeque()
 {
 	double startTime = getTime();
@@ -251,10 +278,8 @@ void PmergeMe::sortWithDeque()
 	deq_time = endTime - startTime;
 }
 
-// Display results
 void PmergeMe::displayResults(const std::vector<int>& original)
 {
-	// Display before
 	std::cout << "Before: ";
 	for (size_t i = 0; i < original.size(); i++)
 	{
@@ -268,7 +293,6 @@ void PmergeMe::displayResults(const std::vector<int>& original)
 	}
 	std::cout << std::endl;
 
-	// Display after
 	std::cout << "After: ";
 	for (size_t i = 0; i < vec_data.size(); i++)
 	{
@@ -282,16 +306,14 @@ void PmergeMe::displayResults(const std::vector<int>& original)
 	}
 	std::cout << std::endl;
 
-	// Display timing information
 	std::cout << "Time to process a range of " << vec_data.size()
-			<< " elements with std::vector : " << std::fixed << std::setprecision(5)
-			<< vec_time << " us" << std::endl;
+			  << " elements with std::vector : " << std::fixed << std::setprecision(5)
+			  << vec_time << " us" << std::endl;
 
 	std::cout << "Time to process a range of " << deq_data.size()
-			<< " elements with std::deque : " << std::fixed << std::setprecision(5)
-			<< deq_time << " us" << std::endl;
+			  << " elements with std::deque : " << std::fixed << std::setprecision(5)
+			  << deq_time << " us" << std::endl;
 }
-
 
 void PmergeMe::run(int argc, char **argv)
 {
