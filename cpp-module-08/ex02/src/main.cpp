@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/11 11:41:23 by spyun         #+#    #+#                 */
-/*   Updated: 2025/09/01 11:47:19 by spyun         ########   odam.nl         */
+/*   Updated: 2025/09/01 11:55:58 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,70 @@
 
 int main()
 {
-	MutantStack<int> mstack;
-	mstack.push(5);
-	mstack.push(17);
-	std::cout << mstack.top() << std::endl;
-	mstack.pop();
-	std::cout << mstack.size() << std::endl;
-	mstack.push(3);
-	mstack.push(5);
-	mstack.push(737);
-	//[...]
-	mstack.push(0);
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
-	++it;
-	--it;
-	while (it != ite)
+	std::cout << "=== Test 1: Basic Push and Pop ===" << std::endl;
 	{
-		std::cout << *it << std::endl;
-		++it;
+		MutantStack<int> mstack;
+
+		mstack.push(5);
+		mstack.push(17);
+		std::cout << "Top: " << mstack.top() << std::endl;  // Should print 17
+
+		mstack.pop();
+		std::cout << "Size after pop: " << mstack.size() << std::endl;  // Should print 1
 	}
-	std::stack<int> s(mstack);
-	return 0;
 
-
-	std::cout << "\n=== Test: empty stack test ===" << std::endl;
+	std::cout << "\n=== Test 2: Iterator Through Stack ===" << std::endl;
 	{
-		MutantStack<int> emptyStack;
+		MutantStack<int> mstack;
+		mstack.push(1);
+		mstack.push(2);
+		mstack.push(3);
 
-		std::cout << "Empty stack size: " << emptyStack.size() << std::endl;
-		std::cout << "Is empty: " << emptyStack.empty() << std::endl;
-
-		std::cout << "Iterating empty stack: ";
-		for (auto it = emptyStack.begin(); it != emptyStack.end(); ++it) {
+		std::cout << "All elements: ";
+		for (auto it = mstack.begin(); it != mstack.end(); ++it)
+		{
 			std::cout << *it << " ";
 		}
-		std::cout << "(nothing)" << std::endl;
+		std::cout << std::endl;
 	}
+
+	std::cout << "\n=== Test 3: Copy to Normal Stack ===" << std::endl;
+	{
+		MutantStack<int> mstack;
+		mstack.push(10);
+		mstack.push(20);
+
+		std::stack<int> normalStack(mstack);
+		std::cout << "Normal stack top: " << normalStack.top() << std::endl;
+		std::cout << "Normal stack size: " << normalStack.size() << std::endl;
+	}
+
+	std::cout << "\n=== Test 4: String Type Test ===" << std::endl;
+	{
+		MutantStack<std::string> strStack;
+		strStack.push("Hello");
+		strStack.push("World");
+
+		std::cout << "String stack: ";
+		for (auto it = strStack.begin(); it != strStack.end(); ++it)
+		{
+			std::cout << *it << " ";
+		}
+		std::cout << std::endl;
+	}
+
+	std::cout << "\n=== Test 5: Empty Stack ===" << std::endl;
+	{
+		MutantStack<int> empty;
+		std::cout << "Empty size: " << empty.size() << std::endl;
+		std::cout << "Is empty: " << empty.empty() << std::endl;
+
+		for (auto it = empty.begin(); it != empty.end(); ++it)
+		{
+			std::cout << "This shouldn't print" << std::endl;
+		}
+		std::cout << "Empty stack iteration complete" << std::endl;
+	}
+
+	return 0;
 }
