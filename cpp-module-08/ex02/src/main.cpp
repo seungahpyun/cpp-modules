@@ -6,7 +6,7 @@
 /*   By: spyun <spyun@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/11 11:41:23 by spyun         #+#    #+#                 */
-/*   Updated: 2025/08/25 16:08:13 by spyun         ########   odam.nl         */
+/*   Updated: 2025/09/01 11:47:19 by spyun         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,19 @@ int main()
 	}
 	std::stack<int> s(mstack);
 	return 0;
+
+
+	std::cout << "\n=== Test: empty stack test ===" << std::endl;
+	{
+		MutantStack<int> emptyStack;
+
+		std::cout << "Empty stack size: " << emptyStack.size() << std::endl;
+		std::cout << "Is empty: " << emptyStack.empty() << std::endl;
+
+		std::cout << "Iterating empty stack: ";
+		for (auto it = emptyStack.begin(); it != emptyStack.end(); ++it) {
+			std::cout << *it << " ";
+		}
+		std::cout << "(nothing)" << std::endl;
+	}
 }
